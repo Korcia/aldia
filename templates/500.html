@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head_title %}Internal Server Error - 500{% endblock %}
+
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+        <li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+        <li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+        <li class="current"><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+        <li><a title="suscríbase" href="/usuarios/register/">Suscripción</a></li>
+        <li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+        <li><a title="ayuda" href="/entrada_servicios/">Servicios</a></li>
+        <li><a title="mi cuenta" href="/usuarios/mi_cuenta">Mi Cuenta</a></li>
+    </ul>
+</div>  
+{% endblock %}
+
+{% block contenido %}
+<div id="content">
+<h1>
+Lo sentimos, pero la web está teniendo problemas técnicos.
+<br /><br />
+Le pedimos disculpas por el inconveniente. Por favor, inténtelo de nuevo más tarde.
+</h1>
+</div>
+{% endblock %}
