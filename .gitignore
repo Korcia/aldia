@@ -8,3 +8,4 @@
 *~
 .git
 *.sqlite
+/jose_lpdh.sqlite
