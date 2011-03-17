@@ -3,25 +3,10 @@ import datetime
 import locale
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import permalink
-from django.utils.translation import ugettext_lazy as _
 
-#from markdown import markdown
-
-MARKUP_HTML = 'h'
-MARKUP_MARKDOWN = 'm'
-MARKUP_REST = 'r'
-MARKUP_TEXTILE = 't'
-MARKUP_OPTIONS = getattr(settings, 'ARTICLE_MARKUP_OPTIONS', (
-        (MARKUP_HTML, _('HTML/Plain Text')),
-        (MARKUP_MARKDOWN, _('Markdown')),
-        (MARKUP_REST, _('ReStructured Text')),
-        (MARKUP_TEXTILE, _('Textile'))
-    ))
-MARKUP_DEFAULT = getattr(settings, 'ARTICLE_MARKUP_DEFAULT', MARKUP_HTML)
 
 #Define mapeo de digitos a numeración romana
 romanNumeralMap = (('M',  1000),
@@ -84,7 +69,7 @@ class Resumen(models.Model):
             year = self.fecha_publicacion.strftime("%Y")
             month = self.fecha_publicacion.strftime("%b").lower()
             day = self.fecha_publicacion.strftime("%d")
-            self.slug = 'LPDH' + day + month + year
+            self.slug = 'lpdh' + day + month + year
 
     def fecha_to_roman(self):
         year = self.fecha_publicacion.strftime("%Y")
@@ -104,12 +89,11 @@ class Resumen(models.Model):
     def save(self, force_insert=False, force_update=False):
         self.crear_slug_unico()
         self.fecha_to_roman()
-        #self.cuerpo_html = markdown(self.cuerpo, ['tables'])
         super(Resumen, self).save(force_insert, force_update)
 
     @permalink
     def get_absolute_url(self):
-        return ('coltrane_resumen_detail', (), { 'year': self.fecha_publicacion.strftime("%Y"),
+        return ('jarrett_resumen_detail', (), { 'year': self.fecha_publicacion.strftime("%Y"),
                                                'month': self.fecha_publicacion.strftime("%b").lower(),
                                                'day': self.fecha_publicacion.strftime("%d"),
                                                'slug': self.slug })

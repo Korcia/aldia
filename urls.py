@@ -1,16 +1,15 @@
-from django.conf.urls.defaults import *
+#coding=UTF-8
+import os.path
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.conf.urls.defaults import *
+from core.views import main_page
+from django.contrib import admin
+admin.autodiscover()
+static = os.path.join(os.path.dirname(__file__), 'static')
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^aldia/', include('aldia.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    (r'^$', main_page),
+    (r'^resumenes/', include('jarrett.urls.resumenes')),
+    (r'^admin/', include(admin.site.urls)),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
 )
