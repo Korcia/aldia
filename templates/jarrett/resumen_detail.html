@@ -1,0 +1,64 @@
+{% extends "base_resumen_detail.html" %}
+{% block meta_name_description %}
+<meta name="description" content="Noticias detalladas.">
+{% endblock %}
+
+{% block head_title %}Resumen: {{ object.titulo }}{% endblock %}
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+		<li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+		<li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+		<li class="current"><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+		<li><a title="suscríbase" href="/usuarios/register/">Suscripción</a></li>
+		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+		<li><a title="ayuda" href="/entrada_servicios/">Servicios</a></li>
+		<li><a title="mi cuenta" href="/usuarios/mi_cuenta">Mi Cuenta</a></li>
+	</ul>
+</div>	
+{% endblock %}
+{% block columnaderecha %}
+<div id="rightColumn">
+    <div class="sideBox">
+        <h3 class="sideBoxHeader">
+            <img src="/static/images/arrow_open.png" alt="toggle"/>
+            Titulares
+        </h3>
+        <ul class="sideBoxList" style="width:auto;">
+            <li><a href="#Section2">Expansión</a></li>
+            <li><a href="#Section3">Cinco Días</a></li>
+            <li><a href="#Section4">El Economista</a></li>
+            <li><a href="#Section5">El País</a></li>
+            <li><a href="#Section6">El Mundo</a></li>
+            <li><a href="#Section7">ABC</a></li>
+            <li><a href="#Section8">La Razón</a></li>
+            <li><a href="#Section9">La Vanguardia</a></li>
+        </ul>
+    </div>
+    <div class="sideBox">
+        <h3 class="sideBoxHeader">
+            <img src="/static/images/arrow_open.png" alt="toggle"/>
+            Secciones
+        </h3>
+        <ul class="sideBoxList" style="width:auto;">
+            <li><a href="#Section10">Economía</a></li>
+            <li><a href="#Section11">Empresas</a></li>
+            <li><a href="#Section12">Telecomunicaciones</a></li>
+            <li><a href="#Section13">Audiovisual</a></li>
+            <li><a href="#Section14">Nuevas Tecnologías</a></li>    
+            <li><a href="#Section15">Internet</a></li>
+            <li><a href="#Section16">Motor</a></li>
+            <li><a href="#Section17">Finanzas</a></li>    
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block contenido %}
+    <div id="resumen">
+        <h1>{{ object.titulo }}</h1>
+        <p><small>Publicado el {{ object.fecha_publicacion|date:"j \de F, Y" }}</small>
+        <small><span class="romanos">nº {{ object.id }} año {{ object.num_romano }}</span></small></p>
+        {{ object.contenido|safe }}
+    </div>
+{% endblock %}
