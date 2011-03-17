@@ -2,13 +2,16 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from core.forms import ContactForm
 from django.db.models import Q
 from jarrett.models import Resumen
 #from django_mobile import set_flavour, get_flavour
 #import re
 from pyparsing import makeHTMLTags, SkipTo
 #import pdb
-from minidetector import *
+#from minidetector import *
 #from django.http import HttpResponse
 from core.forms import SearchFormKeyword
 
@@ -44,7 +47,6 @@ def search_page(request):
             lista_parrafos = ["No se encontraron resultados"]
             lista_resultados.append([fecha_parrafo,enlace,lista_parrafos])
         ## fin busqueda de parrafo
-        #variables = {'rowcolor1': 'impar', 'rowcolor2': 'par', 'resumenes': resumenes, 'parrafos': parrafo}
         variables = {'lista_resultados': lista_resultados}
         return render_to_response('resultados.html', variables, context_instance=RequestContext(request))
     
@@ -55,3 +57,22 @@ def search_page(request):
                 })                
     return render_to_response('search_page.html', variables, context_instance=RequestContext(request))
         
+@csrf_exempt
+def contact(request):
+    #c = {}
+    #c.update(csrf(request))
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            send_mail(
+                cd['asunto'],
+                cd['mensaje'],
+                cd.get('email', 'noreply@example.com'),
+                ['jmgmontes@gmail.com'],
+            )
+            return render_to_response('gracias.html')
+    else:
+        form = ContactForm()
+    return render_to_response('contacto.html', {'form': form}, context_instance=RequestContext(request))
+       

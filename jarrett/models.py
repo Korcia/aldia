@@ -46,7 +46,7 @@ class Resumen(models.Model):
                              help_text="Máximo 250 caracteres.")
     contenido = models.TextField()
     fecha_publicacion = models.DateTimeField(default=datetime.datetime.now)
-    autor = models.ForeignKey(User)
+    autor = models.ForeignKey(User, related_name='+')
     slug = models.SlugField(unique_for_date='fecha_publicacion',
                             help_text="Valor sugerido generado automaticamente por el título. Debe ser único para la fecha de publicación.")
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
@@ -69,7 +69,7 @@ class Resumen(models.Model):
             year = self.fecha_publicacion.strftime("%Y")
             month = self.fecha_publicacion.strftime("%b").lower()
             day = self.fecha_publicacion.strftime("%d")
-            self.slug = 'lpdh' + day + month + year
+            self.slug = 'lpdh-' + day + '-' + month +'-' + year
 
     def fecha_to_roman(self):
         year = self.fecha_publicacion.strftime("%Y")

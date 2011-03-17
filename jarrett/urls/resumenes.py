@@ -9,7 +9,6 @@ entry_info_dict = {
 
 urlpatterns = patterns('django.views.generic.date_based',
      (r'^$',
-     #'jarrett.views.limited_archive_index',
      'archive_index',
      entry_info_dict,
      'jarrett_resumen_archive_index'),

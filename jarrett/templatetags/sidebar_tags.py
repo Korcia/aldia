@@ -1,6 +1,6 @@
-import datetime
-from coltrane.models import Resumen
-from django.conf import settings
+#import datetime
+from jarrett.models import Resumen
+#from django.conf import settings
 from django import template
 
 register = template.Library()

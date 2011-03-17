@@ -1,0 +1,10 @@
+*.bak
+*.back
+*.log
+*.pyc
+*.zip
+*.rar
+*.doc
+*~
+.git
+*.sqlite

@@ -11,11 +11,9 @@
     <ul class="lavaLamp">
 		<li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
 		<li><a title="buscar" href="/buscar/">Búsqueda</a></li>
-		<li class="current"><a title="noticias" href="/resumenes/">Resúmenes</a></li>
-		<li><a title="suscríbase" href="/usuarios/register/">Suscripción</a></li>
+		<li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+		<li class="current"><a title="demo" href="/demo/">Demo</a></li>
 		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
-		<li><a title="ayuda" href="/entrada_servicios/">Servicios</a></li>
-		<li><a title="mi cuenta" href="/usuarios/mi_cuenta">Mi Cuenta</a></li>
 	</ul>
 </div>	
 {% endblock %}
@@ -47,7 +45,7 @@
 	        <ul>
 	        {% for month in month_range %}
 	            {% ifequal year.year month.year %}
-	                <li><a href="{{ ROOT_URL }}/resumenes/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
+	                <li><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
 	            {% endifequal %}
 	        {% endfor %}
 	    </ul>
@@ -58,23 +56,3 @@
     </div>
     <div class="blank"></div>
 {% endblock contenido %}
-{% comment %} 
-{% block sidebar %}
-    <div id="sidebar2" class="sidebar">
-    {% get_archivos %}
-    {% if year_range %}
-    <h3>Archivos</h3>
-    {% for year in year_range %}
-        <h4>{{ year.year }}</h4>
-        <ul>
-        {% for month in month_range %}
-            {% ifequal year.year month.year %}
-                <li><a href="{{ ROOT_URL }}/resumenes/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
-            {% endifequal %}
-        {% endfor %}
-    </ul>
-    {% endfor %}
-    {% endif %}
-    </div>
-{% endblock %}
-{% endcomment %}
