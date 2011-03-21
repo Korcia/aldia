@@ -9,3 +9,5 @@
 .git
 *.sqlite
 /jose_lpdh.sqlite
+.project
+.pydevproject
