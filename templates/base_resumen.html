@@ -60,8 +60,10 @@
    	<div id="usuarios">
     	<ul>
        		{% if user.is_authenticated %}
+       		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> / </span></li>
        			<li><a href="/usuario/logout/">Logout</a></li>
        		{% else %}
+       		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> / </span></li>
        			<li><a href="/usuario/login/">Login</a><span> / </span></li>
        			<li><a href="/usuario/register/">Registrarse</a></li>
        		{% endif %}

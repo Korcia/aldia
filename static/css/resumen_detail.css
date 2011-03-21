@@ -103,7 +103,6 @@ em { font-size: 11px; color: grey; }
 		padding:12px 0 10px 7px;
 		color:#494949;
 		outline:none;
-		text-shadow:0 1px #bfbfbf;
 		background:url(/static/images/searchbg-white.png) no-repeat top left;
 	}
 #searchsubmit
@@ -124,6 +123,7 @@ em { font-size: 11px; color: grey; }
 	}
 #usuarios {
 	float: right;
+	margin-right: 10px;
 }
 #usuarios ul {
 	list-style: none outside none;
@@ -132,7 +132,8 @@ em { font-size: 11px; color: grey; }
 	float: left;
 }
 #usuarios a {
-	color: #f9b13e;
+	color: ##0f4f76;
+	font-size: 13px;
 }
 #navi
 	{

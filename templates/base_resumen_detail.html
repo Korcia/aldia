@@ -10,6 +10,7 @@
 	<meta http-equiv="content-language" content="es-ES">
 	<meta name="language" content="spanish">
 	<meta name="Clasiagenda" content="" />
+	<link rel="stylesheet" href="/static/css/print.css" type="text/css" media="print" />
 	<link href="/static/css/resumen_detail.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
@@ -62,9 +63,11 @@
    	<div id="usuarios">
     	<ul>
        		{% if user.is_authenticated %}
+       		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> /&nbsp;</span></li>
        			<li><a href="/usuario/logout/">Logout</a></li>
        		{% else %}
-       			<li><a href="/usuario/login/">Login</a><span> / </span></li>
+       		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> /&nbsp;</span></li>
+       			<li><a href="/usuario/login/">Login</a><span> /&nbsp;</span></li>
        			<li><a href="/usuario/register/">Registrarse</a></li>
        		{% endif %}
     	</ul>
