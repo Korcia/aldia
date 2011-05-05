@@ -54,15 +54,10 @@
 <!-- start header -->
     <div id="header">
     	<h1><a href="/"></a></h1>
-    		<form method="GET" action="/buscar/">
-        	<input type="text" id="s" name="keywords" maxlength="40" value="Buscar resúmenes..." onfocus="if (value =='Buscar resúmenes...'){value =''}" onblur="if (value ==''){value='Buscar resúmenes...'}" />
-        	<input type="hidden" name="tipobusqueda" value="keywordsearch" />
-        	<input type="submit" value=" " id="searchsubmit"/>
-    	</form>
     	<div id="usuarios">
     		<ul>
         		{% if user.is_authenticated %}
-        			<li><a href="/usuario/logout/">Logout</a></li>
+        			<li><a href="/usuario/logout/">Salir</a></li>
         		{% else %}
         			<li><a href="/usuario/login/">Login</a><span> / </span></li>
         			<li><a href="/usuario/register/">Registrarse</a></li>
@@ -84,7 +79,7 @@
 </div>
 
 <div id="footer">
-	<p class="copyright">&copy;&nbsp;&nbsp;2009-2011 &nbsp;&bull;&nbsp; Diseñado por <a href="http://www.laprensadehoy.es/contacto/">LPDH</a>.</p>
+	<p class="copyright">&copy;&nbsp;&nbsp;2009-2011 &nbsp;&bull;&nbsp; Diseñado por <a href="http://www.laprensadehoy.es/contacto/">Korcia</a>.</p>
     <!-- AddThis Button BEGIN -->
 <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=korcia"><img src="http://s7.addthis.com/static/btn/v2/lg-share-es.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=korcia"></script>
 <!-- AddThis Button END -->

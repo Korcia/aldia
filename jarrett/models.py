@@ -6,7 +6,7 @@ locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import permalink
-
+from utils.views import get_weather 
 
 #Define mapeo de digitos a numeración romana
 romanNumeralMap = (('M',  1000),
@@ -52,6 +52,7 @@ class Resumen(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
                                  help_text="Sólo noticias con estado Publica serán mostradas.")
     num_romano = models.CharField(max_length=20)
+    tiempo = models.TextField(blank=True)
 
     objects = models.Manager()
     live = LiveResumenManager()
@@ -87,6 +88,7 @@ class Resumen(models.Model):
         self.num_romano = resultado
         
     def save(self, force_insert=False, force_update=False):
+        self.tiempo = get_weather()
         self.crear_slug_unico()
         self.fecha_to_roman()
         super(Resumen, self).save(force_insert, force_update)

@@ -53,15 +53,16 @@
     <div id="header">
     
     <h1><a href="/"></a></h1>
-    <form action="">
-        <input type="text" id="s" name="q" value="Buscar resúmenes..." onfocus="if (value =='Buscar resúmenes...'){value =''}" onblur="if (value ==''){value='Buscar resúmenes...'}" />
+    <form action="/buscar/">
+        <input type="text" id="id_keywords" name="keywords" value="Buscar resúmenes..." onfocus="if (value =='Buscar resúmenes...'){value =''}" onblur="if (value ==''){value='Buscar resúmenes...'}" />
+        <input type="hidden" value="keywordsearch" name="tipobusqueda">
         <input type="submit" value=" " id="searchsubmit"/>
     </form>
    	<div id="usuarios">
     	<ul>
        		{% if user.is_authenticated %}
        		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> / </span></li>
-       			<li><a href="/usuario/logout/">Logout</a></li>
+       			<li><a href="/usuario/logout/">Salir</a></li>
        		{% else %}
        		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> / </span></li>
        			<li><a href="/usuario/login/">Login</a><span> / </span></li>

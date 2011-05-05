@@ -1,0 +1,71 @@
+{% comment %}
+{% for lista in lista_resultados %}
+    <div class="post text">
+        <div class="postinfo">
+           <div class="labels">
+                    <div class="date">
+                        <span class="smaller">{{ lista.0|date:"M" }}</span><br><span>{{ lista.0|date:"j" }}<span><br></span></span>
+                    </div>
+            </div>
+        
+                    
+        </div><!-- .postinfo -->
+        <span class="posttitle"><h2><a href="{{ lista.1 }}"><img src="/static/images/logo-lpdh-resultados.png" alt="logo" />&nbsp;&nbsp;{{ lista.0|date:"j \de F, Y" }}</a></h2></span>
+        <div class="regular_post_body">
+            {% for parrafo in lista.2 %}
+                <ul>
+                <li>{{ parrafo|safe }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+        <a rel="nofollow" href="#" class="vialink">{{ lista.3 }} Resultados</a>
+        <br>
+        <ul class="tags" style="float:right;">
+        <li><a href="{{ lista.1 }}">&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></li>
+        </ul>
+        <br class="clear">
+    </div>
+{% endfor %}
+{% endcomment %}
+
+    {% for lista in lista_resultados %}
+    <div class="post text">
+        <div class="postinfo">
+           {% if not errors and found %}
+           <div class="labels">
+                    <div class="date">
+                        <span class="smaller">{{ lista.0|date:"M" }}</span><br><span>{{ lista.0|date:"j" }}<span><br></span></span>
+                    </div>
+            </div>
+            {% endif %}
+        
+                    
+        </div><!-- .postinfo -->
+        {% if errors %}
+            <ul><li id="error-busqueda">{{ lista.0.0 }}</li></ul>
+        {% endif %}
+        {% if not errors and not found %}
+            {% for parrafo in lista.2 %}
+            <ul><li id="nofound-busqueda">{{ parrafo }}</li></ul>
+            {% endfor %}
+        {% endif %}
+        {% if not errors and found %}
+            <span class="posttitle"><h2><a href="{{ lista.1 }}"><img src="/static/images/logo-lpdh-resultados.png" alt="logo" />&nbsp;&nbsp;{{ lista.0|date:"j \de F, Y" }}</a></h2></span>
+            <div class="regular_post_body">
+                {% for parrafo in lista.2 %}
+                    <ul>
+                    <li>{{ parrafo|safe }}</li>
+                    </ul>
+                {% endfor %}
+            </div>
+            <a rel="nofollow" href="#" class="vialink">{{ lista.3 }} Resultados</a>
+        {% endif %}
+        <br>
+        {% if not errors and found %}
+            <ul class="tags" style="float:right;">
+            <li><a href="{{ lista.1 }}">&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></li>
+            </ul>
+        {% endif %}
+        <br class="clear">
+    </div>
+    {% endfor %}

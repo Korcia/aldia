@@ -94,6 +94,7 @@ INSTALLED_APPS = (
     'core',
     'coltrane',
     'jarrett',
+    'utils',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

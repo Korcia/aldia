@@ -3,25 +3,10 @@ import datetime
 import locale
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import permalink
-from django.utils.translation import ugettext_lazy as _
-
-#from markdown import markdown
-
-MARKUP_HTML = 'h'
-MARKUP_MARKDOWN = 'm'
-MARKUP_REST = 'r'
-MARKUP_TEXTILE = 't'
-MARKUP_OPTIONS = getattr(settings, 'ARTICLE_MARKUP_OPTIONS', (
-        (MARKUP_HTML, _('HTML/Plain Text')),
-        (MARKUP_MARKDOWN, _('Markdown')),
-        (MARKUP_REST, _('ReStructured Text')),
-        (MARKUP_TEXTILE, _('Textile'))
-    ))
-MARKUP_DEFAULT = getattr(settings, 'ARTICLE_MARKUP_DEFAULT', MARKUP_HTML)
+from utils.views import get_weather 
 
 #Define mapeo de digitos a numeración romana
 romanNumeralMap = (('M',  1000),
@@ -61,12 +46,13 @@ class Resumen(models.Model):
                              help_text="Máximo 250 caracteres.")
     contenido = models.TextField()
     fecha_publicacion = models.DateTimeField(default=datetime.datetime.now)
-    autor = models.ForeignKey(User)
+    autor = models.ForeignKey(User, related_name='+')
     slug = models.SlugField(unique_for_date='fecha_publicacion',
                             help_text="Valor sugerido generado automaticamente por el título. Debe ser único para la fecha de publicación.")
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
                                  help_text="Sólo noticias con estado Publica serán mostradas.")
     num_romano = models.CharField(max_length=20)
+    tiempo = models.TextField(blank=True)
 
     objects = models.Manager()
     live = LiveResumenManager()
@@ -102,9 +88,9 @@ class Resumen(models.Model):
         self.num_romano = resultado
         
     def save(self, force_insert=False, force_update=False):
+        self.tiempo = get_weather()
         self.crear_slug_unico()
         self.fecha_to_roman()
-        #self.cuerpo_html = markdown(self.cuerpo, ['tables'])
         super(Resumen, self).save(force_insert, force_update)
 
     @permalink

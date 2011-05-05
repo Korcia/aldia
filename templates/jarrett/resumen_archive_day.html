@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_resumen_detail.html" %}
 {% block meta_name_description %}
 <meta name="description" content="Archivo diario.">
 {% endblock %}
@@ -6,20 +6,16 @@
 {% load sidebar_tags %}
 
 {% block head_title %}Noticias publicadas el {{ day|date:"j \de F, Y" }}{% endblock %}
-{% block content %}
-    <div id="content">
+{% block contenido %}
+    <div id="resumen">
  
-    <h2>Noticias publicadas el {{ day|date:"j \de F, Y" }}</h2>
+    <h2>Extracto del Boletín del {{ day|date:"j \de F, Y" }}</h2>
     {% for entry in object_list %}
       <div class="post">
       <h1 class="title">{{ entry.titulo }}</h1>
       <p class="byline"><small>Publicado el {{ entry.fecha_publicacion|date:"j \de F, Y" }}</small></p>
-      {% if entry.excerpt_html %}
           <div class="entry">
-          {{ entry.extracto_html|safe }}
-      {% else %}
-        {{ entry.cuerpo_html|truncatewords_html:"50"|safe }}
-      {% endif %}
+          {{ entry.contenido|truncatewords_html:"50"|safe }}
       <p class="more"><a href="{{ entry.get_absolute_url }}">&laquo;&laquo;&nbsp;&nbsp;Leer Noticia&nbsp;&nbsp;&raquo;&raquo;</a></p>
       </div>
       </div>
@@ -36,7 +32,7 @@
         <ul>
         {% for month in month_range %}
             {% ifequal year.year month.year %}
-                <li><a href="{{ ROOT_URL }}/resumenes/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
+                <li><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
             {% endifequal %}
         {% endfor %}
     </ul>

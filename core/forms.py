@@ -10,7 +10,7 @@ class SearchFormKeyword(forms.Form):
         ('ME', 'Mensual'),
         ('AN', 'Anual'),
     )
-    keywords = forms.CharField(label='Palabras Clave', max_length=40, required=False, widget=forms.TextInput(attrs={'size':'30'}))
+    keywords = forms.CharField(max_length=40, required=False, widget=forms.TextInput(attrs={'size':'14'}))
     fecha_periodo = forms.ChoiceField(label='Periodo de Busqueda', choices=RADIO_PERIODO_CHOICES)
     def clean_keywords(self):
         keywords = self.cleaned_data['keywords']

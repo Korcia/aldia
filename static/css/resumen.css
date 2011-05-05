@@ -8,14 +8,13 @@ html {
 	padding: 0;
 	border: 0;
 }
-body
-	{
-		font-size:13px;
-		font-family:Arial,Helvetica,sans-serif;
-		background:url(/static/images/bg.png) top center no-repeat #212121;
-		outline: 0;
-		padding: 0;
-		border: 0;
+body {
+	font-size:11px;
+    font-family:  Ubuntu, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Geneva, Verdana, sans-serif ;
+	background:url(/static/images/bg.png) top center no-repeat #212121;
+	outline: 0;
+	padding: 0;
+	border: 0;
 }
 
 #wrapper { width:960px; overflow:hidden; margin:0px auto; position:relative;}
@@ -54,7 +53,7 @@ body
 		float:left;
 		margin-top:-2px;
 	}
-#s
+#id_keywords
 	{
 		width:232px;
 		padding:12px 0 10px 7px;
@@ -90,6 +89,7 @@ body
 }
 #usuarios a {
 	color: #f9b13e;
+	font-size: 13px;
 }
 #navi
 	{
@@ -107,7 +107,7 @@ body
 	{
 		text-align:center;
 		width:124px;
-		line-height:53px;
+		line-height:49px;
 	}
 #navi a
 	{
@@ -154,6 +154,7 @@ body
 
 .readmore a {
 	color: #f9b744;
+	font-size: 13px;
 }
 .filas td {
 	text-align: center;
@@ -183,6 +184,7 @@ body
 		margin-top: 40px;
 		padding-bottom: 5px;
 		background: url(/static/images/sidebarbg_center2.png) repeat-y;
+		font-size: 14px;
 	}
 .sidebaritem_top
 	{

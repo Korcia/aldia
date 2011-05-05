@@ -19,6 +19,7 @@ li, p {
 	line-height: 1.5;
 	font-size: 15px;
 }
+ul li { text-align: justify; }
 a {text-decoration: none;}
 /*p { margin: 10px 0; } */
 em { font-size: 11px; color: grey; }
@@ -37,6 +38,11 @@ em { font-size: 11px; color: grey; }
     -moz-border-radius: 3px 3px 3px 3px; 
     /*background: url('/static/images/gradiente_resumen.jpg') repeat-y left top;*/
 }
+#logo-detalle { 
+	width: 220px;
+	height: 45px;
+	margin-bottom: -10px;
+}
 #footer {
     width:740px;
     float:right;
@@ -50,10 +56,17 @@ em { font-size: 11px; color: grey; }
 /*#Section2, #Section3, #Section4, #Section18, #Section20 { margin: 10px 0;}*/
 .Lpdh { margin: 10px 0; }
 #Section2>b,#Section3>b,#Section4>b,#Section5>b,#Section6>b,
-#Section7>b,#Section8>b,#Section9>b,#Section10>b,#Section11>b,
-#Section12>b,#Section13>b,#Section14>b,#Section15>b,#Section16>b,
-#Section17>b,#Section18>b,#Section19>b,#Section20>b,#Section21>b,
+#Section7>b,#Section8>b,#Section9>b,#Section18>b,#Section19>b,#Section20>b,#Section21>b,
 #Section22>b,#Section23>b,#Section24>b,#Section25>b,#Section26>b {
+    font-size: 18px;
+    color: #666666;
+    font-family: Ubuntu, Verdana, Arial;
+    text-decoration: none;
+}
+#Section10 table.MsoNormalTable>tbody>tr>td>a + b,#Section11 table.MsoNormalTable>tbody>tr>td>a + b,
+#Section12 table.MsoNormalTable>tbody>tr>td>a + b,#Section13 table.MsoNormalTable>tbody>tr>td>a + b,
+#Section14 table.MsoNormalTable>tbody>tr>td>a + b,#Section15 table.MsoNormalTable>tbody>tr>td>a + b,
+#Section16 table.MsoNormalTable>tbody>tr>td>a + b,#Section17 table.MsoNormalTable>tbody>tr>td>a + b {
     font-size: 18px;
     color: #666666;
     font-family: Ubuntu, Verdana, Arial;
@@ -61,15 +74,58 @@ em { font-size: 11px; color: grey; }
 }
 .romanos { margin-left: 100px;}
 #resumen h1 { margin-top: 30px; }
-#resumen p { font-size: 9px; font-style: italic; }
+#resumen p { font-size: 16px; font-style: italic; margin-bottom: 15px;}
+#resumen ul { margin-bottom: 10px; }
 #resumen li {
     list-style-image: url(/static/images/bullet_grey.gif);
     font-family: Ubuntu, arial;
     font-weight: 300;
+    margin-top: 10px;
+}
+#resumen li>b {
+    font-weight: 800;
+    display: block;
+}
+.referencias {
+	font-style: italic;
+	font-weight: 200;
+	font-size: 12px;
 }
 .Lpdh li { font-size: 12px; }
 .entry ul { font-size:15px; }
 .entry h2 { color: grey; line-height: 2; }
+li .MsoNormalTable { margin: 10px 0 }
+
+/**************************** to-top *************************/
+#toTop {
+    display:none;
+    text-decoration:none;
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    overflow:hidden;
+    width:51px;
+    height:51px;
+    border:none;
+    text-indent:-999px;
+    background:url(/static/images/ui.totop.png) no-repeat left top;
+}
+
+#toTopHover {
+    background:url(/static/images/ui.totop.png) no-repeat left -51px;
+    width:51px;
+    height:51px;
+    display:block;
+    overflow:hidden;
+    float:left;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:alpha(opacity=0);
+}
+
+#toTop:active, #toTop:focus {
+    outline:none;
+}
 /**************************** header *************************/
 #header
 	{
@@ -97,7 +153,7 @@ em { font-size: 11px; color: grey; }
 		margin-top:-2px;
 		margin-right: 5px;
 	}
-#s
+#id_keywords
 	{
 		width:232px;
 		padding:12px 0 10px 7px;
@@ -246,7 +302,7 @@ sidebox.css h3 {
     height: 28px;
     padding: 4px 0 0 10px;
 }
-.sideBox .sideBoxHeader img { cursor: pointer; }
+/*.sideBox .sideBoxHeader img { cursor: pointer; }*/
 element.style {
     width: auto;
 }
@@ -313,4 +369,37 @@ element.style {
 }
 #rango li a {
 	color: #c3c3c3;
+}
+/*********************** tablas de temperaturas, sorteos ****************/
+table#tiempo {
+	width: 560px;
+	border-collapse:collapse;
+	margin: auto;
+}
+#tiempo td {
+	margin: 0;
+}
+table#tiempo>thead>tr>th {
+	width: 320px;
+}
+#tiempo tbody {
+	margin-left: 15px;
+}
+#tiempo tbody tr td {
+	text-align: center;
+}
+#tiempo table, #tiempo th, #tiempo tr, #tiempo td {
+	border: solid 1px black;
+}
+.fondoazul {
+	background-color: #268bd2;
+	color: white;
+}
+.fondoamarillo {
+	background-color: #93a1a1;
+	color: white;
+}
+.letraazul {
+	color:  #268bd2;
+	font-weight: bold;
 }

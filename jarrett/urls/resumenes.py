@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from utils.views import get_weather
 from jarrett.models import Resumen
 
 
