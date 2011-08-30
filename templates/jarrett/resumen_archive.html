@@ -3,7 +3,7 @@
 <meta name="description" content="Archivo de noticias.">
 {% endblock %}
 
-{% load sidebar_tags %}
+{% load sidebar_tags_jarrett %}
 
 {% block head_title %}Resúmenes{% endblock %}
 {% block navi %}
@@ -37,7 +37,7 @@
     <div id="historicos">
     <div class="sidebaritem">
     <div class="sidebaritem_top"><a class="title" href="#">Archivos</a></div>    
-	    {% get_archivos %}
+	    {% get_archivos_jarrett %}
 	    {% if year_range %}
 	    <div id="rango">
 	    {% for year in year_range %}

@@ -56,8 +56,8 @@ em { font-size: 11px; color: grey; }
 /*#Section2, #Section3, #Section4, #Section18, #Section20 { margin: 10px 0;}*/
 .Lpdh { margin: 10px 0; }
 #Section2>b,#Section3>b,#Section4>b,#Section5>b,#Section6>b,
-#Section7>b,#Section8>b,#Section9>b,#Section18>b,#Section19>b,#Section20>b,#Section21>b,
-#Section22>b,#Section23>b,#Section24>b,#Section25>b,#Section26>b {
+#Section7>b,#Section8>b,#Section9>b,#Section10>b,#Section11>b,#Section12>b,#Section13>b,
+#Section14>b,#Section15>b,#Section16>b,#Section17>b,#Section20>b {
     font-size: 18px;
     color: #666666;
     font-family: Ubuntu, Verdana, Arial;
@@ -72,7 +72,7 @@ em { font-size: 11px; color: grey; }
     font-family: Ubuntu, Verdana, Arial;
     text-decoration: none;
 }
-.romanos { margin-left: 100px;}
+.romanos { margin-left: 10px;}
 #resumen h1 { margin-top: 30px; }
 #resumen p { font-size: 16px; font-style: italic; margin-bottom: 15px;}
 #resumen ul { margin-bottom: 10px; }
@@ -91,7 +91,7 @@ em { font-size: 11px; color: grey; }
 	font-weight: 200;
 	font-size: 12px;
 }
-.Lpdh li { font-size: 12px; }
+.Lpdh li { font-size: 15px; }
 .entry ul { font-size:15px; }
 .entry h2 { color: grey; line-height: 2; }
 li .MsoNormalTable { margin: 10px 0 }

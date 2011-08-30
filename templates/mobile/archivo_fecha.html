@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+    <meta charset="utf-8" /> 
+    <title>La Prensa de Hoy</title> 
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />-->
+    <link rel="stylesheet" href="/static/css/jquery.mobile-1.0a4.1.css" />
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+</head> 
+<body>
+
+<!-- Hoy Page -->
+<div data-role="page" id="home">
+    <div data-role="header">
+        <a href="#home" data-icon="arrow-l">Volver</a>
+        <h1>Archivo Fecha</h1>
+        <!--<h2>La Prensa de Hoy</h2>-->
+    </div>
+    <div data-role="content"> 
+        <h2>{{ fecha_resultado }}</h2>
+        <ul data-role="listview" data-inset="true" data-theme="a">
+            <li><a href="/moviles/ultimo/">Titulares</a></li>
+            <li><a href="#archivos">Economía</a></li>
+            <li><a href="#archivos">Empresas</a></li>
+            <li><a href="#about">Telecomunicaciones</a></li>
+            <li><a href="#about">Audiovisual</a></li>
+            <li><a href="#about">Nuevas Tecnologías</a></li>
+            <li><a href="#about">Internet</a></li>
+            <li><a href="#about">Finanzas</a></li>
+        </ul>
+    </div>
+    <div data-role="footer"  data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="/#hoy">Hoy</a></li>
+                <li><a href="b.html">Archivos</a></li>
+                <li><a href="b.html">Buscar</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div>
+</div> 
+
+
+</body>
+</html>

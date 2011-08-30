@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     (r'^usuario/login/', login),
     (r'^usuario/logout/', logout, {'next_page': '/' }),
     (r'^admin/', include(admin.site.urls)),
+    (r'^moviles/', include('moviles.urls')),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
 )

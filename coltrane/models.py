@@ -3,10 +3,24 @@ import datetime
 import locale
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import permalink
+from django.utils.translation import ugettext_lazy as _
 from utils.views import get_weather 
+
+MARKUP_HTML = 'h'
+MARKUP_MARKDOWN = 'm'
+MARKUP_REST = 'r'
+MARKUP_TEXTILE = 't'
+MARKUP_OPTIONS = getattr(settings, 'ARTICLE_MARKUP_OPTIONS', (
+        (MARKUP_HTML, _('HTML/Plain Text')),
+        (MARKUP_MARKDOWN, _('Markdown')),
+        (MARKUP_REST, _('ReStructured Text')),
+        (MARKUP_TEXTILE, _('Textile'))
+    ))
+MARKUP_DEFAULT = getattr(settings, 'ARTICLE_MARKUP_DEFAULT', MARKUP_HTML)
 
 #Define mapeo de digitos a numeración romana
 romanNumeralMap = (('M',  1000),
@@ -49,7 +63,7 @@ class Resumen(models.Model):
     autor = models.ForeignKey(User, related_name='+')
     slug = models.SlugField(unique_for_date='fecha_publicacion',
                             help_text="Valor sugerido generado automaticamente por el título. Debe ser único para la fecha de publicación.")
-    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
+    status = models.IntegerField(choices=STATUS_CHOICES, default=HIDDEN_STATUS,
                                  help_text="Sólo noticias con estado Publica serán mostradas.")
     num_romano = models.CharField(max_length=20)
     tiempo = models.TextField(blank=True)

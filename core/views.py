@@ -7,6 +7,8 @@ from django.core.mail import send_mail
 from core.forms import ContactForm
 from django.db.models import Q
 from jarrett.models import Resumen
+from minidetector import *
+
 import datetime
 #from django_mobile import set_flavour, get_flavour
 import re
@@ -17,7 +19,11 @@ from pyparsing import makeHTMLTags, SkipTo
 from core.forms import SearchFormKeyword
 
 def main_page(request):
-    return render_to_response('main_page.html', locals(), context_instance=RequestContext(request))
+    if request.mobile:
+        return render_to_response('mobile/index.html')
+    else:
+        #return render_to_response('mobile/index.html')
+        return render_to_response('main_page.html', locals(), context_instance=RequestContext(request))
 
 def buscar_page(request):
     

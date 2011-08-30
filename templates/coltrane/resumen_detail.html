@@ -55,8 +55,9 @@
 {% block contenido %}
     <div id="resumen">
         <img id="logo-detalle" src="/static/images/logo-lpdh-resumen-detail.png" alt="La Prensa de Hoy" />
-        <p><small>Publicado el {{ object.fecha_publicacion|date:"j \de F, Y" }}</small>
+        <p><small>{{ object.fecha_publicacion|date:"j \de F, Y" }}</small>
         <small><span class="romanos">nº {{ object.id }} año {{ object.num_romano }}</span></small></p>
         {{ object.contenido|safe }}
+        {{ object.tiempo|safe }}
     </div>
 {% endblock %}
