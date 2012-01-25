@@ -57,9 +57,14 @@
         <img id="logo-detalle" src="/static/images/logo-lpdh-resumen-detail.png" alt="La Prensa de Hoy" />
         <p><small>{{ object.fecha_publicacion|date:"j \de F, Y" }}</small>
         <small><span class="romanos">nº {{ object.id }} año {{ object.num_romano }}</span></small></p>
-        {% block comment %}
-        Poner aqui el logo en función del usuario
-        {% endcomment %}
+        <div id="logoempresa">
+        {% if user.username == 'bosch' %}
+            <img class="logo-empresa" src="/static/images/bosch.png" alt="Bosch" />
+        {% endif %}
+        {% if user.username == 'vodafone' %}
+            <img class="logo-empresa" src="/static/images/vodafone2.png" alt="Vodafone" />
+        {% endif %}
+        </div>
         {{ object.contenido|safe }}
         {{ object.tiempo|safe }}
     </div>

@@ -9,7 +9,7 @@
 	<meta name="keywords" content="prensa, resumen, económica, economía, actualidad" />
 	<meta http-equiv="content-language" content="es-ES">
 	<meta name="language" content="spanish">
-	<meta name="Clasiagenda" content="" />
+	<meta name="La Prensa de Hoy" content="" />
 	<link rel="stylesheet" href="/static/css/print.css" type="text/css" media="print" />
 	<link href="/static/css/resumen_detail.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:light' rel='stylesheet' type='text/css'>
@@ -81,11 +81,17 @@
    	<div id="usuarios">
     	<ul>
        		{% if user.is_authenticated %}
+                {% comment %}
+                <li><a href="/ezpdf_sample/" class="gray-btn">PDF</a><span> /&nbsp;</span></li>
+                {% endcomment %}
        		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> /&nbsp;</span></li>
-       			<li><a href="/usuario/logout/">Logout</a></li>
+       			<li><a href="/usuario/logout/">Salir</a></li>
        		{% else %}
+                {% comment %}
+                <li><a href="/ezpdf_sample/" class="gray-btn">PDF</a></li>
+                {% endcomment %}
        		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> /&nbsp;</span></li>
-       			<li><a href="/usuario/login/">Login</a><span> /&nbsp;</span></li>
+       			<li><a href="/usuario/login/">Acceso</a><span> /&nbsp;</span></li>
        			<li><a href="/usuario/register/">Registrarse</a></li>
        		{% endif %}
     	</ul>
@@ -118,7 +124,6 @@
 	{% endcomment %}
 	<!-- end page -->
 <div id=footer align="center">
-<iframe name="sorteos-loteria" src="http://widgets.combinacionganadora.com/widget-03.php" width="470" height="1000" scrolling="no" border="0" frameborder="0" marginheight="0"></iframe>
 <script language="Javascript" type="text/javascript" src="http://widgets.elpais.com/liga/wlaunch.html?c=gris&w=400">  
 </script> 
 

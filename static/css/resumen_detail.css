@@ -38,10 +38,20 @@ em { font-size: 11px; color: grey; }
     -moz-border-radius: 3px 3px 3px 3px; 
     /*background: url('/static/images/gradiente_resumen.jpg') repeat-y left top;*/
 }
+#logoempresa {
+	width: 170px;
+	float: right;
+	margin-top: -30px;
+}
 #logo-detalle { 
 	width: 220px;
 	height: 45px;
 	margin-bottom: -10px;
+}
+.logo-empresa { 
+    width: 170px;
+    height: 50px;
+    margin-bottom: -10px;
 }
 #footer {
     width:740px;
@@ -402,4 +412,14 @@ table#tiempo>thead>tr>th {
 .letraazul {
 	color:  #268bd2;
 	font-weight: bold;
+}
+a.gray-btn { 
+    padding: 0.25em 0.5em;
+    background: url(/static/images/nav-gray-bg.png) repeat-x;
+    border-radius: 5px;
+    font-size: 110%;
+    border: 1px solid #000;
+    color: #333;
+    font-weight: 900;
+    margin-right: 5px;
 }
