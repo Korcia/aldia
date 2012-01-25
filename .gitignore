@@ -11,3 +11,6 @@
 /jose_lpdh.sqlite
 .project
 .pydevproject
+.ropeproject
+.directory
+.spyderproject
