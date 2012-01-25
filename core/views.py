@@ -6,7 +6,20 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from core.forms import ContactForm
 from django.db.models import Q
-from jarrett.models import Resumen
+#from jarrett.models import Resumen
+from coltrane.models import Resumen
+from minidetector import *
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.template import Context
+import xhtml2pdf.pisa as pisa
+
+#import logging
+import cStringIO as StringIO
+#from io import StringIO #python 2.7
+#import StringIO
+import cgi
+
 import datetime
 #from django_mobile import set_flavour, get_flavour
 import re
@@ -17,7 +30,11 @@ from pyparsing import makeHTMLTags, SkipTo
 from core.forms import SearchFormKeyword
 
 def main_page(request):
-    return render_to_response('main_page.html', locals(), context_instance=RequestContext(request))
+    if request.mobile:
+        return render_to_response('mobile/index.html')
+    else:
+        #return render_to_response('mobile/index.html')
+        return render_to_response('main_page.html', locals(), context_instance=RequestContext(request))
 
 def buscar_page(request):
     
@@ -150,3 +167,27 @@ def contact(request):
     else:
         form = ContactForm()
     return render_to_response('contacto.html', {'form': form}, context_instance=RequestContext(request))
+
+def render_to_pdf(template_src, context_dict):
+    template = get_template(template_src)
+    context = Context(context_dict)
+    html  = template.render(context)
+    result = StringIO.StringIO()
+    #pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("ISO-8859-1")), result)
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result, encoding='UTF-8')
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), mimetype='application/pdf')
+    return HttpResponse('We had some errors<pre>%s</pre>' % cgi.escape(html))
+
+def ezpdf_sample(request):
+    blog_entries = []
+    for i in range(1,10):
+        blog_entries.append({
+            'id': i,
+            'title':'Playing with pisa 3.0.16 and dJango Template Engine',
+            'body':'This is a simple example..'
+            })
+    return render_to_pdf('/demo/2011/mar/17/la-prensa-de-hoy-jueves-17-de-marzo-de-2011/',{
+        'pagesize':'A4',
+        'title':'My amazing blog',
+        'blog_entries':blog_entries})

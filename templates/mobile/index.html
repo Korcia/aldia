@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+    <meta charset="utf-8" /> 
+    <title>La Prensa de Hoy</title> 
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />-->
+    <link rel="stylesheet" href="/static/css/jquery.mobile-1.0a4.1.css" />
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script>
+    $().ready(function(){  
+        $('#enviar').click(function(){
+            window.location.replace("/demo/2011/mar/17/" + $('#fecha-mobile').val());
+        });
+    });
+    </script>   
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/jquery.ui.datepicker.mobile.css" /> 
+    <script src="/static/js/jquery.ui.datepicker-esp.js"></script>
+    <script src="/static/js/jquery.ui.datepicker.mobile.js"></script>
+</head> 
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home"> 
+    <div data-role="header">
+        <h1 id="lpdh-logo"><img width="120" height="25" src="/static/images/mobile/logo_mobile.png"></h1>
+    </div> 
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-theme="a">
+            <li><a href="#hoy">Hoy</a></li>
+            <li><a href="#archivos">Archivos</a></li>
+            <li><a href="#buscar">Buscar</a></li>
+            <li><a href="#about">Acerca de</a></li>
+    </ul>
+    </div> 
+    <div data-role="footer">
+    </div> 
+</div>
+
+<!-- Hoy Page -->
+<div data-role="page" id="hoy">
+    <div data-role="header">
+        <a href="#home" data-icon="arrow-l">Volver</a>
+        <h1 id="lpdh-logo"><img width="120" height="25" src="/static/images/mobile/logo_mobile.png"></h1>
+        <!--<h2>La Prensa de Hoy</h2>-->
+    </div>
+    <div data-role="content"> 
+        <ul data-role="listview" data-inset="true" data-theme="a">
+            <li><a href="/moviles/ultimo/">Titulares</a></li>
+            <li><a href="#archivos">Economía</a></li>
+            <li><a href="#archivos">Empresas</a></li>
+            <li><a href="#about">Telecomunicaciones</a></li>
+            <li><a href="#about">Audiovisual</a></li>
+            <li><a href="#about">Nuevas Tecnologías</a></li>
+            <li><a href="#about">Internet</a></li>
+            <li><a href="#about">Finanzas</a></li>
+        </ul>
+    </div>
+    <div data-role="footer"  data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#hoy">Hoy</a></li>
+                <li><a href="b.html">Archivos</a></li>
+                <li><a href="b.html">Buscar</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div>
+</div> 
+
+<!-- About Page -->
+<div data-role="page" id="about">
+    <div data-role="header">
+        <h1>About</h1>
+        <a data-icon="arrow-u" class="ui-btn-right" href="#home">Home</a>
+    </div> 
+    <div data-role="content">
+        <p>La Prensa de Hoy es un servicio de resúmenes diarios de prensa económica.</p>
+    </div> 
+    <div data-role="footer" class="ui-bar">
+        <a href="index.html" data-role="button" data-icon="arrow-u">Arriba</a>
+    </div> 
+</div>
+
+<!-- Archivos Page -->
+<div data-role="page" id="archivos">
+    <div data-role="fieldcontain">
+    <form method="get" action="/moviles/archivos/" data-ajax="false">
+        <label for="date">Fecha:</label>
+        <input type="date" name="fecha" id="fecha-mobile" value=""  />
+        <input type="hidden" name="tipobusqueda" value="fechabusqueda" />       
+        <input type="submit" id="enviar" value="Enviar" />
+    </form>
+    </div>
+</div>
+</body>
+</html>

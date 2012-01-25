@@ -5,7 +5,7 @@ from django import template
 
 register = template.Library()
 
-@register.tag(name="get_archivos")
+@register.tag(name="get_archivos_jarrett")
 def do_archivos(parser, token):
     return ArchivosNode()
 

@@ -818,6 +818,10 @@ label[for*="description"],label[for*="is"],label[for*="about"]
 #footer .link {
 	float: right;
 }
+#___plusone_0 {
+	float: left !important;
+	margin: 18px 0 0 10px !important;
+}
 
 #footer .copyright {
 	float: left;

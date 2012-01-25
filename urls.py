@@ -2,7 +2,7 @@
 import os.path
 
 from django.conf.urls.defaults import *
-from core.views import main_page, contact, buscar_page
+from core.views import main_page, contact, buscar_page, ezpdf_sample
 from django.contrib.auth.views import login, logout
 from django.contrib import admin
 admin.autodiscover()
@@ -17,5 +17,7 @@ urlpatterns = patterns('',
     (r'^usuario/login/', login),
     (r'^usuario/logout/', logout, {'next_page': '/' }),
     (r'^admin/', include(admin.site.urls)),
+    (r'^moviles/', include('moviles.urls')),
+    (r'^ezpdf_sample/', ezpdf_sample),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static}),
 )

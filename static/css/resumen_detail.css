@@ -38,10 +38,20 @@ em { font-size: 11px; color: grey; }
     -moz-border-radius: 3px 3px 3px 3px; 
     /*background: url('/static/images/gradiente_resumen.jpg') repeat-y left top;*/
 }
+#logoempresa {
+	width: 170px;
+	float: right;
+	margin-top: -30px;
+}
 #logo-detalle { 
 	width: 220px;
 	height: 45px;
 	margin-bottom: -10px;
+}
+.logo-empresa { 
+    width: 170px;
+    height: 50px;
+    margin-bottom: -10px;
 }
 #footer {
     width:740px;
@@ -56,8 +66,8 @@ em { font-size: 11px; color: grey; }
 /*#Section2, #Section3, #Section4, #Section18, #Section20 { margin: 10px 0;}*/
 .Lpdh { margin: 10px 0; }
 #Section2>b,#Section3>b,#Section4>b,#Section5>b,#Section6>b,
-#Section7>b,#Section8>b,#Section9>b,#Section18>b,#Section19>b,#Section20>b,#Section21>b,
-#Section22>b,#Section23>b,#Section24>b,#Section25>b,#Section26>b {
+#Section7>b,#Section8>b,#Section9>b,#Section10>b,#Section11>b,#Section12>b,#Section13>b,
+#Section14>b,#Section15>b,#Section16>b,#Section17>b,#Section20>b {
     font-size: 18px;
     color: #666666;
     font-family: Ubuntu, Verdana, Arial;
@@ -72,7 +82,7 @@ em { font-size: 11px; color: grey; }
     font-family: Ubuntu, Verdana, Arial;
     text-decoration: none;
 }
-.romanos { margin-left: 100px;}
+.romanos { margin-left: 10px;}
 #resumen h1 { margin-top: 30px; }
 #resumen p { font-size: 16px; font-style: italic; margin-bottom: 15px;}
 #resumen ul { margin-bottom: 10px; }
@@ -91,7 +101,7 @@ em { font-size: 11px; color: grey; }
 	font-weight: 200;
 	font-size: 12px;
 }
-.Lpdh li { font-size: 12px; }
+.Lpdh li { font-size: 15px; }
 .entry ul { font-size:15px; }
 .entry h2 { color: grey; line-height: 2; }
 li .MsoNormalTable { margin: 10px 0 }
@@ -402,4 +412,14 @@ table#tiempo>thead>tr>th {
 .letraazul {
 	color:  #268bd2;
 	font-weight: bold;
+}
+a.gray-btn { 
+    padding: 0.25em 0.5em;
+    background: url(/static/images/nav-gray-bg.png) repeat-x;
+    border-radius: 5px;
+    font-size: 110%;
+    border: 1px solid #000;
+    color: #333;
+    font-weight: 900;
+    margin-right: 5px;
 }

@@ -23,13 +23,21 @@ DATABASES = {
     }
 }
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
+# Settings para comprobar envio de boletines a traves de email
+ARTICLES_FROM_EMAIL = {
+    'protocol': 'IMAP4',
+    'host': 'mail.wservices.ch',
+    'port': 993,
+    'keyfile': None,
+    'certfile': None,
+    'user': 'boletin@laprensadehoy.es',
+    'password': '1961Michie',
+    'ssl': True,
+    #'autopost': True,
+    'markup': 'h',
+    'acknowledge': False,
+    }
+
 TIME_ZONE = 'Europe/Madrid'
 
 # Language code for this installation. All choices can be found here:
@@ -76,6 +84,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'minidetector.Middleware',
 )
 
 ROOT_URLCONF = 'aldia.urls'
@@ -95,10 +104,11 @@ INSTALLED_APPS = (
     'coltrane',
     'jarrett',
     'utils',
+    'moviles',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
-
+IPAD_IS_MOBILE = True
 LOGIN_URL = '/usuario/login/'
 LOGOUT_URL = '/usuario/logout/'
 LOGIN_REDIRECT_URL = '/usuario/profile/'

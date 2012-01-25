@@ -3,7 +3,7 @@
 <meta name="description" content="Archivo de noticias.">
 {% endblock %}
 
-{% load sidebar_tags %}
+{% load sidebar_tags_jarrett %}
 
 {% block head_title %}Resúmenes{% endblock %}
 {% block navi %}
@@ -19,9 +19,12 @@
 {% endblock %}
 
 {% block contenido %}
+<div id="container-top"></div>
+<div id="container">
+    <span class="titular_ultimos"><h2>Últimos Resúmenes</h2></span>
     <div id="resumen">
-        <table id="resultados" class="load" width="100%" border="1" cellspacing="0">
-            <caption>Últimos Resúmenes</caption>
+        <table id="resultados" class="load" width="600px" border="1" cellspacing="0">
+            <caption>&nbsp;</caption>
             <tbody>
             {% for entry in latest %}
                 
@@ -37,7 +40,7 @@
     <div id="historicos">
     <div class="sidebaritem">
     <div class="sidebaritem_top"><a class="title" href="#">Archivos</a></div>    
-	    {% get_archivos %}
+	    {% get_archivos_jarrett %}
 	    {% if year_range %}
 	    <div id="rango">
 	    {% for year in year_range %}
@@ -55,4 +58,16 @@
 	</div>    
     </div>
     <div class="blank"></div>
+</div>
+    <div id="container-bottom">        
+            <div id="load-more-posts"><span class="spinner"></span><p>Load more posts…</p></div>        
+            <div id="hidden_navinfo"><!-- this is necessary for ajax pagination --><span class="startpage">1</span><span class="totalpages">3</span></div>
+             <div id="classic-pagination">
+                
+                 <a href="http://ppa.webupd8.org/page/2" id="next-page">Next page</a>
+            </div><!-- #classic-pagination -->
+        
+        <a rel="nofollow" href="http://www.pixelunion.net/" id="pixelunion-link">To Tumblr, Love PixelUnion</a>
+    </div>
+    <br>
 {% endblock contenido %}

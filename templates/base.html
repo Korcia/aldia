@@ -59,7 +59,7 @@
         		{% if user.is_authenticated %}
         			<li><a href="/usuario/logout/">Salir</a></li>
         		{% else %}
-        			<li><a href="/usuario/login/">Login</a><span> / </span></li>
+        			<li><a href="/usuario/login/">Acceso</a><span> / </span></li>
         			<li><a href="/usuario/register/">Registrarse</a></li>
         		{% endif %}
     		</ul>
@@ -86,7 +86,21 @@
     
 	<a class="facebook" target="_blank" href="http://www.facebook.com/laprensadehoy"></a>
     <a class="twitter" target="_blank" href="http://www.twitter.com/prensadehoy"></a>
+    <g:plusone></g:plusone>
 	<p class="link"><a href="#">Política de Privacidad</a>&nbsp;&#8226;&nbsp;<a href="#">Términos de Uso</a></p>
+	<!-- Place this tag where you want the +1 button to render -->
+
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 </div>
 
 </body>

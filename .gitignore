@@ -11,6 +11,13 @@
 /jose_lpdh.sqlite
 .project
 .pydevproject
+<<<<<<< HEAD
 .ropeproject
 .directory
 .spyderproject
+=======
+.directory
+.ropeproject/
+.spyderproject
+
+>>>>>>> mobile
