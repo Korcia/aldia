@@ -3,6 +3,19 @@
 <meta name="description" content="Archivo de noticias.">
 {% endblock %}
 
+{% block js %}
+<script>
+$(document).ready(function() {
+    $('.archive_month').hide();
+
+    $('.abrir').click(function() {
+        $(this).find('ul').slideToggle();
+        $(this).toggleClass('cerrar');
+    });
+});
+</script>
+{% endblock %}
+
 {% load sidebar_tags_jarrett %}
 
 {% block head_title %}Resúmenes{% endblock %}
@@ -27,12 +40,11 @@
             <caption>&nbsp;</caption>
             <tbody>
             {% for entry in latest %}
-                
-                    <tr class="filas">
-                        <td><img src="/static/images/logo_lpdh.jpg" alt="Ver resumen", title="Resumen diario." /></td>  
-                        <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \de F, Y" }}</h2></td>
-                        <td><span class="readmore"><a href="{{ entry.get_absolute_url }}">&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></td>
-                    </tr>
+                <tr class="filas">
+                    <td><img src="/static/images/logo_lpdh.jpg" alt="Ver resumen" title="Resumen diario." /></td>  
+                    <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</h2></td>
+                    <td><span class="readmore"><a href={{ entry.get_absolute_url }}>&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
@@ -43,16 +55,19 @@
 	    {% get_archivos_jarrett %}
 	    {% if year_range %}
 	    <div id="rango">
+	    <ul class="archive_year">
 	    {% for year in year_range %}
-	        <h4>{{ year.year }}</h4>
-	        <ul>
+	        <li class="abrir">{{ year.year }}
+	        <ul class="archive_month">
 	        {% for month in month_range %}
 	            {% ifequal year.year month.year %}
-	                <li><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
+	                <li class="months"><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"m" }}/">{{ month|date:"F" }}</a></li>
 	            {% endifequal %}
 	        {% endfor %}
-	    </ul>
+	        </ul>
+	        </li>
 	    {% endfor %}
+	    </ul>
 	    </div>
 	    {% endif %}
 	</div>    
@@ -61,13 +76,6 @@
 </div>
     <div id="container-bottom">        
             <div id="load-more-posts"><span class="spinner"></span><p>Load more posts…</p></div>        
-            <div id="hidden_navinfo"><!-- this is necessary for ajax pagination --><span class="startpage">1</span><span class="totalpages">3</span></div>
-             <div id="classic-pagination">
-                
-                 <a href="http://ppa.webupd8.org/page/2" id="next-page">Next page</a>
-            </div><!-- #classic-pagination -->
-        
-        <a rel="nofollow" href="http://www.pixelunion.net/" id="pixelunion-link">To Tumblr, Love PixelUnion</a>
     </div>
     <br>
 {% endblock contenido %}

@@ -1,32 +1,48 @@
-from django.conf.urls.defaults import *
-from utils.views import get_weather
+from django.conf.urls.defaults import patterns, url
+from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
+
 from jarrett.models import Resumen
 
 
-entry_info_dict = {
-    'queryset': Resumen.live.all(),
-    'date_field': 'fecha_publicacion',
-}
-
-urlpatterns = patterns('django.views.generic.date_based',
-     (r'^$',
-     'archive_index',
-     entry_info_dict,
-     'jarrett_resumen_archive_index'),
-    (r'^(?P<year>\d{4})/$',
-     'archive_year',
-     entry_info_dict,
-     'jarrett_resumen_archive_year'),
-    (r'^(?P<year>\d{4})/(?P<month>\w{3})/$',
-     'archive_month',
-     entry_info_dict,
-     'jarrett_resumen_archive_month'),
-    (r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/$',
-     'archive_day',
-     entry_info_dict,
-     'jarrett_resumen_archive_day'),
-    (r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
-     'object_detail',
-     entry_info_dict,
-     'jarrett_resumen_detail'),
+urlpatterns = patterns('',
+    url(r'^$',
+        ArchiveIndexView.as_view(
+            date_field = 'fecha_publicacion',
+            paginate_by = 15,
+            allow_empty = True,
+            queryset = Resumen.live.all()
+        ),
+        name='resumen_archivo'
+    ),
+     url(r'^(?P<year>\d{4})/$',
+        YearArchiveView.as_view(
+            date_field = 'fecha_publicacion',
+            paginate_by= 15,
+            allow_empty= True,
+            queryset= Resumen.live.all()),
+        name='resumen_year'),
+     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/$',
+        MonthArchiveView.as_view(
+            date_field= 'fecha_publicacion',
+            month_format = '%m',
+            paginate_by= 15,
+            allow_empty= True,
+            queryset= Resumen.live.all()),
+        name='resumen_mes'),
+     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/$',
+        DayArchiveView.as_view(
+            date_field= 'fecha_publicacion',
+            month_format = '%m',
+            paginate_by= 15,
+            allow_empty= True,
+            queryset= Resumen.live.all()),
+        name='resumen_dia'),
+     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
+        DateDetailView.as_view(
+            slug_field = 'slug',
+            date_field= 'fecha_publicacion',
+            month_format = '%m',
+            #model= Resumen),
+            queryset= Resumen.live.all()),
+        name='resumen-detalle'),
 )

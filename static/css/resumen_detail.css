@@ -24,24 +24,25 @@ a {text-decoration: none;}
 /*p { margin: 10px 0; } */
 em { font-size: 11px; color: grey; }
 #wrapper {
-    width:960px;
-    overflow:hidden;
-    margin:0px auto;
-    position:relative;
+    width: 960px;
+    overflow: hidden;
+    margin: 0px auto;
+    position: relative;
     background: url("/static/images/bg_dots.png") no-repeat scroll 9px 0 #DED8D4;
 }
-#resumen { width:730px; 
-    float:right; 
+#resumen { 
+    width: 900px; 
+    float: right; 
     padding: 0 10px;
     margin-right: 20px;
     background-color: white;
-    -moz-border-radius: 3px 3px 3px 3px; 
+    border-radius: 3px 3px 3px 3px; 
     /*background: url('/static/images/gradiente_resumen.jpg') repeat-y left top;*/
 }
 #logoempresa {
 	width: 170px;
 	float: right;
-	margin-top: -30px;
+	margin-top: -75px;
 }
 #logo-detalle { 
 	width: 220px;
@@ -52,6 +53,11 @@ em { font-size: 11px; color: grey; }
     width: 170px;
     height: 50px;
     margin-bottom: -10px;
+}
+.sulogo-empresa { 
+    width: 52px;
+    height: 52px;
+    margin-bottom: -50px;
 }
 #footer {
     width:740px;
@@ -100,6 +106,8 @@ em { font-size: 11px; color: grey; }
 	font-style: italic;
 	font-weight: 200;
 	font-size: 12px;
+    display: block;
+    margin-bottom: 20px;
 }
 .Lpdh li { font-size: 15px; }
 .entry ul { font-size:15px; }
@@ -117,7 +125,8 @@ li .MsoNormalTable { margin: 10px 0 }
     width:51px;
     height:51px;
     border:none;
-    text-indent:-999px;
+    /*text-indent:-999px;*/
+    text-indent: 100%;
     background:url(/static/images/ui.totop.png) no-repeat left top;
 }
 
@@ -208,17 +217,6 @@ li .MsoNormalTable { margin: 10px 0 }
 		margin-bottom: 20px;
 		background:url(/static/images/navibg-blue.png) no-repeat center;
 	}
-#navi ul
-	{
-		list-style:none;
-		padding-left:20px;
-	}
-#navi ul li
-	{
-		text-align:center;
-		width:124px;
-		line-height:53px;
-	}
 #navi a
 	{
 		text-decoration:none;
@@ -238,29 +236,29 @@ li .MsoNormalTable { margin: 10px 0 }
 		font-size:13px;
 	}
 #logon a:hover{text-decoration:underline;}
-.lavaLamp
-	{
-		position: relative;
-		margin: 10px 0;
-	}
-.lavaLamp li{float: left;}
-.lavaLamp li.back
-	{
+
+ul#menulava {
+    overflow: auto;
+    list-style: none;
+	padding-left:20px;
+}
+ul#menulava li{ 
+    position: relative;
+    z-index: 5;
+    margin: 0 0;
+	text-align:center;
+	width:124px;
+	line-height:53px;
+    float: left;
+}
+ul#menulava li.backLava	{
 		background:url(/static/images/libg-blue.png) no-repeat center;
 		width:94px;
 		margin-top:1px;
 		height: 53px;
-		z-index: 1;
-		position: absolute;
-	}
-.lavaLamp li a
-	{
-		color:#000;
-		z-index: 2;
-		text-decoration:none;
-		position: relative;
-		margin: auto 10px;
-	}
+		/*z-index: 1;
+		position: absolute;*/
+}
 
 .readmore a {
 	color: #f9b744;
@@ -277,13 +275,29 @@ li .MsoNormalTable { margin: 10px 0 }
 }
 /************************** columna derecha ********************/
 #rightColumn {
-    float: left;
-    position:fixed;
-    margin: 0 0 0 16px;
-    width: 164px;
+    display: none;
+    /*float: left;*/
+    position: fixed;
+    margin: -160px 0 0 180px;
+    width: 464px;
     font-family: Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,sans-serif;
-    font-size: 12px;
+    font-size: 26px;
     line-height: 1.333em;
+    background: black;
+    border: 1px solid #111111;
+    border-top-right-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    filter: alpha(opacity=98);
+    opacity: .98;
+}
+#click {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    background: url("/static/images/ui.toright.png");
+    margin-top: 200px;
 }
 #rightColumn #sidebarText {
     color: #7C164A;
@@ -297,20 +311,23 @@ sidebox.css h3 {
     margin: 0 0 8px;
 }
 #rightColumn .sideBox {
-    -moz-border-radius: 3px 3px 3px 3px;
-    -moz-box-shadow: 0 2px 5px #888888;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 5px #888888;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -webkit-box-shadow: 0 2px 5px #888888;
     background-color: #E1DFDD;
     margin: 16px 0 0;
     padding: 1px;
     position: relative;
 }
 .sideBox .sideBoxHeader {
-    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     background: url("/static/images/sidebox_stripes.png") repeat scroll 0 0 transparent;
     /*color: #7C164A;*/
     color: #0A4466;
-    height: 28px;
-    padding: 4px 0 0 10px;
+    height: 26px;
+    padding: 1px 0 0 10px;
+    line-height: 1;
 }
 /*.sideBox .sideBoxHeader img { cursor: pointer; }*/
 element.style {
@@ -326,10 +343,12 @@ element.style {
 }
 .sideBox .sideBoxList li {
     border-bottom: 1px dotted #B3B2AF;
-    padding: 4px 0;
+    /* padding: 4px 0; */
 }
 .sideBox .sideBoxList li a {
     color: #393939;
+    line-height: 1.2;
+    font-size: 26px;
 }
 .sideBox .sideBoxList li a:hover {
     text-decoration: underline;
@@ -423,3 +442,66 @@ a.gray-btn {
     font-weight: 900;
     margin-right: 5px;
 }
+/*********************** tablas propias del Resumen ****************/
+.lpdtabla {
+    border: 1px solid #000000;
+    margin: 15px auto;
+    border-collapse: collapse;
+    width: auto;
+}
+.negrita {
+    font-weight: bold;
+}
+span.negrita {
+    display: block;
+}
+.lpdtabla td {
+    border: 1px solid #6d6d6d;
+}
+
+a.trigger{
+position: fixed;
+text-decoration: none;
+top: 180px; left: 10;
+font-size: 16px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 20px 40px 20px 15px;
+font-weight: 700;
+background:#333333 url(/static/images/plus.png) 85% 55% no-repeat;
+border:1px solid #444444;
+border-top-right-radius: 20px;
+-webkit-border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+-webkit-border-bottom-right-radius: 20px;
+border-bottom-left-radius: 0px;
+-webkit-border-bottom-left-radius: 0px;
+display: block;
+}
+ 
+a.trigger:hover{
+position: fixed;
+text-decoration: none;
+top: 180px; left: 10;
+font-size: 16px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 20px 40px 20px 20px;
+font-weight: 700;
+background:#222222 url(/static/images/plus.png) 85% 55% no-repeat;
+border:1px solid #444444;
+border-top-right-radius: 20px;
+-webkit-border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+-webkit-border-bottom-right-radius: 20px;
+border-bottom-left-radius: 0px;
+-webkit-border-bottom-left-radius: 0px;
+display: block;
+}
+ 
+a.display.trigger {
+background:#222222 url(/static/images/minus.png) 85% 55% no-repeat;
+}
+ 

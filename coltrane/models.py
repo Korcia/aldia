@@ -1,14 +1,14 @@
 #coding=UTF-8
 import datetime
-import locale
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+#import locale
+#locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import permalink
+#from django.db.models import permalink
 from django.utils.translation import ugettext_lazy as _
-from utils.views import get_weather 
+from django.core.urlresolvers import reverse
 
 MARKUP_HTML = 'h'
 MARKUP_MARKDOWN = 'm'
@@ -60,13 +60,13 @@ class Resumen(models.Model):
                              help_text="Máximo 250 caracteres.")
     contenido = models.TextField()
     fecha_publicacion = models.DateTimeField(default=datetime.datetime.now)
-    autor = models.ForeignKey(User, related_name='+')
+    autor = models.ForeignKey(User, related_name='autores')
     slug = models.SlugField(unique_for_date='fecha_publicacion',
                             help_text="Valor sugerido generado automaticamente por el título. Debe ser único para la fecha de publicación.")
-    status = models.IntegerField(choices=STATUS_CHOICES, default=HIDDEN_STATUS,
+    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
                                  help_text="Sólo noticias con estado Publica serán mostradas.")
     num_romano = models.CharField(max_length=20)
-    tiempo = models.TextField(blank=True)
+    num_serie = models.IntegerField(blank=True)
 
     objects = models.Manager()
     live = LiveResumenManager()
@@ -75,6 +75,7 @@ class Resumen(models.Model):
     class Meta:
         ordering = ['-fecha_publicacion']
         verbose_name_plural = "Resúmenes"
+        get_latest_by = "fecha_publicacion"
 
     def __unicode__(self):
         return self.titulo
@@ -102,14 +103,20 @@ class Resumen(models.Model):
         self.num_romano = resultado
         
     def save(self, force_insert=False, force_update=False):
-        self.tiempo = get_weather()
         self.crear_slug_unico()
         self.fecha_to_roman()
         super(Resumen, self).save(force_insert, force_update)
 
-    @permalink
     def get_absolute_url(self):
-        return ('coltrane_resumen_detail', (), { 'year': self.fecha_publicacion.strftime("%Y"),
-                                               'month': self.fecha_publicacion.strftime("%b").lower(),
-                                               'day': self.fecha_publicacion.strftime("%d"),
-                                               'slug': self.slug })
+        year = str(self.fecha_publicacion.strftime("%Y"))
+        month = str(self.fecha_publicacion.strftime("%m"))
+        day = str(self.fecha_publicacion.strftime("%d"))
+        slug = str(self.slug)
+        return reverse('privado-resumen-detalle', args= (year, month, day, slug))
+
+#    @permalink
+#    def get_absolute_url(self):
+#        return ('coltrane_resumen_detail', (), { 'year': self.fecha_publicacion.strftime("%Y"),
+#                                               'month': self.fecha_publicacion.strftime("%b").lower(),
+#                                               'day': self.fecha_publicacion.strftime("%d"),
+#                                               'slug': self.slug })

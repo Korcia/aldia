@@ -1,23 +1,41 @@
-*.bak
-*.back
-*.log
 *.pyc
-*.zip
-*.rar
-*.doc
-*~
-.git
-*.sqlite
-/jose_lpdh.sqlite
+*.pyo
+*.kate-swp
+virtualenvs
+.directory
 .project
 .pydevproject
-<<<<<<< HEAD
-.ropeproject
-.directory
-.spyderproject
-=======
-.directory
-.ropeproject/
-.spyderproject
 
->>>>>>> mobile
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject

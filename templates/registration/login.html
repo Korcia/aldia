@@ -10,7 +10,7 @@
 		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
 	</ul>
     <div id="logon">
-        <a href="/usuario/login/?next=/">Login</a><span> / </span><a href="/usuario/register/">Registrarse</a>
+        <a href="/usuario/login/?next=/">Login</a><span> / </span><a href="/register/">Registrarse</a>
     </div>		
 </div>	
 {% endblock %}
@@ -28,7 +28,7 @@
 		</ul>
 		<br />
 	{% endif %}
-	<form method="post" action="{% url django.contrib.auth.views.login %}">
+	<form method="post" action="{% url "django.contrib.auth.views.login" %}">
 	{% csrf_token %}
 	<table summary="Login" id="login">
 		<tr>

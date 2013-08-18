@@ -1,0 +1,23 @@
+body {
+	padding: 0 5%;
+	background: #ffffff;
+	font-family: Verdana, "Times New Roman";
+	line-height: 14px;
+}
+#header, #navi, #rightColumn, #footer {
+	display: none;
+}
+#resumen h1 {
+	margin-top: 10px;
+	font-size: 16px;
+}
+#resumen li {
+	font-size: 8.5px;
+	page-brake-inside: avoid;
+}
+#resumen p { font-size: 9px; font-style: italic; }
+#resumen {
+	width: 100%;
+	margin: 0;
+	float: none;
+}

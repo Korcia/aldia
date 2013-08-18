@@ -1,0 +1,7 @@
+Django==1.5.1
+PIL==1.1.7
+Unipath==1.0
+html5lib==0.90
+pyparsing==1.5.6
+reportlab==2.5
+xhtml2pdf==0.0.3

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>La Prensa de Hoy | {% block flatpage.title %}{% endblock %}</title>
+    {% block meta_name_description %}{% endblock %}
+
+	<meta name="keywords" content="prensa, resumen, económica, economía, actualidad" />
+	<meta http-equiv="content-language" content="es-ES">
+	<meta name="language" content="spanish">
+	<meta name="La Prensa de Hoy" content="" />
+	<link href="/static/css/cssreset.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script type='text/javascript' src='/static/js/jquery.min.js'></script>
+    <script type='text/javascript' src='/static/js/lavalamp.min.js'></script>
+    <script type='text/javascript' src='/static/js/easing.js'></script>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    $(function(){$(".lavaLamp").lavaLamp({ fx: "backout", speed: 700 })});
+    /* ]]> */
+    
+    </script>
+
+	{% block estilo %}{% endblock %}
+	{% block js %}{% endblock %}
+
+	<!--[if IE]>
+	<style>
+	legend {
+	position: absolute;
+	top: -.5em;
+	left: .2em;
+	padding-bottom: .1em;
+	}
+	
+	fieldset {
+	position: relative;
+	margin-top: 1em;
+	padding-top: .8em;
+	padding-left: .4em;
+	}
+	fieldset input {
+	left: .2em;
+	}
+	</style>
+	<![endif]--> 
+</head>
+
+<body>
+<div id="wrapper">
+
+<!-- start header -->
+    <div id="header">
+    	<h1><a href="/"></a></h1>
+    	<div id="usuarios">
+    		<ul>
+        		{% if user.is_authenticated %}
+        			<li><a href="/usuario/logout/">Salir</a></li>
+        		{% else %}
+        			<li><a href="/resumenes/">Acceso</a><span> / </span></li>
+        			<li><a href="/register/">Registrarse</a></li>
+        		{% endif %}
+    		</ul>
+    	</div>
+    </div>
+<div id="navi">
+    <ul class="lavaLamp">
+        <li class="current"><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+        <li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+        <li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+        <li><a title="suscríbase" href="/demo/">Demo</a></li>
+        <li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+        <li><a title="suscríbase" href="/suscripcion/">Suscripción</a></li>
+    </ul>
+</div>  
+<!-- end header -->
+<div id="contenidoplano">
+{{ flatpage.content }}
+</div>
+<!-- fin div wrapper -->
+</div>
+
+<div id="footer">
+	<p class="copyright">&copy;&nbsp;&nbsp;2009-2012 &nbsp;&bull;&nbsp; </p>
+    <!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=korcia"><img src="http://s7.addthis.com/static/btn/v2/lg-share-es.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=korcia"></script>
+<!-- AddThis Button END -->
+    
+	<p class="link"><a href="/privacidad/">Política de Privacidad</a>&nbsp;&#8226;&nbsp;<a href="/devolucion/">Política de Devolución</a></p>
+	<!-- Place this tag where you want the +1 button to render -->
+
+
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</div>
+
+</body>
+</html>

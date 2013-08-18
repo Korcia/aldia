@@ -14,16 +14,15 @@
 	<link href="/static/css/resumen_detail.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:light' rel='stylesheet' type='text/css'>
 
-    <script type='text/javascript' src='/static/js/jquery-1.3.2.min.js'></script>
-    <script type='text/javascript' src='/static/js/lavalamp.min.js'></script>
-    <script type='text/javascript' src='/static/js/easing.js'></script>
-    <script type='text/javascript' src='/static/js/jquery.easing.js'></script>
-    <script type="text/javascript" src="/static/js/jquery.ui.totop.js">
-    <script type='text/javascript' src='/static/js/lpdh.js'></script>
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript' src='/static/js/jquery.easing.1.3.js'></script>
+    <script type='text/javascript' src='/static/js/jquery.lavalamp.1.4.min.js'></script>
+    <!--<script type='text/javascript' src='/static/js/jquery.easing.js'></script>-->
+    <!--<script type='text/javascript' src='/static/js/jquery.easing.compatibility.js'></script>-->
+    <script type="text/javascript" src="/static/js/jquery.ui.totop.min.js"></script>
     <script type="text/javascript">
-    /* <![CDATA[ */
-    $(function(){$(".lavaLamp").lavaLamp({ fx: "backout", speed: 700 })});
-    /* ]]> */
+    $(function(){$('ul#menulava').lavaLamp({ speed: 700 })});
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -40,7 +39,26 @@
             
         });
     </script>
-
+    <script type="text/javascript">
+    /*$(document).ready(function(){
+        $(".trigger").bind(" click touch tap ", function(){
+            $("#rightColumn").toggle("fast");
+            $(this).toggleClass("display");
+            return false;
+        });
+        $(".indice").bind("click touch tap", function(){
+            $("#rightColumn").toggle("fast");
+            return;
+        });
+    });*/
+/*
+        $(document).ready(function() {
+            $('#click').click(function(){
+                $("#rightColumn").animate({width:'toggle'},500);
+            });
+        });
+*/
+    </script>
 	{% block estilo %}{% endblock %}
 	{% block js %}{% endblock %}
 
@@ -91,8 +109,8 @@
                 <li><a href="/ezpdf_sample/" class="gray-btn">PDF</a></li>
                 {% endcomment %}
        		    <li class="printer"><a href="javascript:window.print()">Imprimir</a><span> /&nbsp;</span></li>
-       			<li><a href="/usuario/login/">Acceso</a><span> /&nbsp;</span></li>
-       			<li><a href="/usuario/register/">Registrarse</a></li>
+       			<li><a href="/resumenes/">Acceso</a><span> /&nbsp;</span></li>
+       			<li><a href="/register/">Registrarse</a></li>
        		{% endif %}
     	</ul>
    	</div>
@@ -104,8 +122,6 @@
 <!-- end header -->
 
 	<!-- start page -->
-	{% block columnaderecha %}
-	{% endblock %}
 	{% block contenido %}
 	{% endblock %}
 	{% comment %} 
@@ -131,5 +147,7 @@
 <!-- fin div wrapper -->
 
 </div>
+</div>
+
 </body>
 </html>

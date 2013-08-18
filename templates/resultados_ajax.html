@@ -50,7 +50,7 @@
             {% endfor %}
         {% endif %}
         {% if not errors and found %}
-            <span class="posttitle"><h2><a href="{{ lista.1 }}"><img src="/static/images/logo-lpdh-resultados.png" alt="logo" />&nbsp;&nbsp;{{ lista.0|date:"j \de F, Y" }}</a></h2></span>
+            <span class="posttitle"><h2><a href="{{ lista.1 }}"><img src="/static/images/logo-lpdh-resultados.png" alt="logo" />&nbsp;&nbsp;{{ lista.0|date:"j \d\e F, Y" }}</a></h2></span>
             <div class="regular_post_body">
                 {% for parrafo in lista.2 %}
                     <ul>

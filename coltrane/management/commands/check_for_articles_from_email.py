@@ -1,5 +1,5 @@
 from base64 import b64decode
-from datetime import datetime
+from datetime import datetime, date
 from email.parser import FeedParser
 from email.utils import parseaddr, parsedate
 from optparse import make_option
@@ -301,6 +301,32 @@ class Command(BaseCommand):
 
         return None
 
+#    def get_titulo(fecha_publicacion):
+#        strfecha = str(fecha_publicacion)
+#        dia = strfecha[8:]
+#        mes = strfecha[5:7]
+#        if dia == '01': strdia = '1'
+#        elif dia == '02': strdia = '2'
+#        elif dia == '03': strdia = '3'
+#        elif dia == '04': strdia = '4'
+#        elif dia == '05': strdia = '5'
+#        elif dia == '06': strdia = '6'
+#        elif dia == '07': strdia = '7'
+#        elif dia == '08': strdia = '8'
+#        elif dia == '09': strdia = '9'
+#        if mes == '01': strmes = 'Enero'
+#        elif mes == '02': strmes = 'Febrero'
+#        elif mes == '03': strmes = 'Marzo'
+#        elif mes == '04': strmes = 'Abril'
+#        elif mes == '05': strmes = 'Mayo'
+#        elif mes == '06': strmes = 'Junio'
+#        elif mes == '07': strmes = 'Julio'
+#        elif mes == '08': strmes = 'Agosto'
+#        elif mes == '09': strmes = 'Septiembre'
+#        elif mes == '10': strmes = 'Octubre'
+#        elif mes == '11': strmes = 'Noviembre'
+#        elif mes == '12': strmes = 'Diciembre'
+#        return ("LPDH " + strdia + " de " + strmes + " de " + strfecha[0:4])
     def create_articles(self, emails):
         """Attempts to post new articles based on parsed email messages"""
 
@@ -327,24 +353,91 @@ class Command(BaseCommand):
                 continue
 
             # get the attributes for the article
-            titulo = email.get('Subject', '--- article from email ---')
+            #titulo = email.get('Subject', '--- article from email ---')
+            fnumserial = open('/home/nacho/laprensadehoy/numserial','r')
+            numero = fnumserial.readline()
+            fnumserial.close()
+            newnumero = int(numero) + 1
+            num_serie = int(numero)
+            strnewnumero = str(newnumero)
+            fnumserial = open('/home/nacho/laprensadehoy/numserial','w')
+            fnumserial.write(strnewnumero)
+            fnumserial.close()
 
             contenido = self.get_email_content(email)
             try:
                 # try to grab the timestamp from the email message
-                fecha_publicacion = datetime.fromtimestamp(time.mktime(parsedate(email['Date'])))
+                #fecha_publicacion = datetime.fromtimestamp(time.mktime(parsedate(email['Date'])))
+                fecha_publicacion2 = datetime.now()
+                fecha_publicacion = date.today()
+                strfecha = str(fecha_publicacion)
+                dia = strfecha[8:]
+                mes = strfecha[5:7]
+                if dia == '01': strdia = '1'
+                elif dia == '02': strdia = '2'
+                elif dia == '03': strdia = '3'
+                elif dia == '04': strdia = '4'
+                elif dia == '05': strdia = '5'
+                elif dia == '06': strdia = '6'
+                elif dia == '07': strdia = '7'
+                elif dia == '08': strdia = '8'
+                elif dia == '09': strdia = '9'
+                else : strdia = dia
+                if mes == '01': strmes = 'Enero'
+                elif mes == '02': strmes = 'Febrero'
+                elif mes == '03': strmes = 'Marzo'
+                elif mes == '04': strmes = 'Abril'
+                elif mes == '05': strmes = 'Mayo'
+                elif mes == '06': strmes = 'Junio'
+                elif mes == '07': strmes = 'Julio'
+                elif mes == '08': strmes = 'Agosto'
+                elif mes == '09': strmes = 'Septiembre'
+                elif mes == '10': strmes = 'Octubre'
+                elif mes == '11': strmes = 'Noviembre'
+                elif mes == '12': strmes = 'Diciembre'
+                titulo = "LPDH " + strdia + " de " + strmes + " de " + strfecha[0:4]
+                #titulo = get_titulo(fecha_publicacion)
             except StandardError, err:
                 self.log("An error occurred when I tried to convert the email's timestamp into a datetime object: %s" % (err,))
-                fecha_publicacion = datetime.now()
+                fecha_publicacion2 = datetime.now()
+                fecha_publicacion = date.today()
+                strfecha = str(fecha_publicacion)
+                dia = strfecha[8:]
+                mes = strfecha[5:7]
+                if dia == '01': strdia = '1'
+                elif dia == '02': strdia = '2'
+                elif dia == '03': strdia = '3'
+                elif dia == '04': strdia = '4'
+                elif dia == '05': strdia = '5'
+                elif dia == '06': strdia = '6'
+                elif dia == '07': strdia = '7'
+                elif dia == '08': strdia = '8'
+                elif dia == '09': strdia = '9'
+                else : strdia = dia
+                if mes == '01': strmes = 'Enero'
+                elif mes == '02': strmes = 'Febrero'
+                elif mes == '03': strmes = 'Marzo'
+                elif mes == '04': strmes = 'Abril'
+                elif mes == '05': strmes = 'Mayo'
+                elif mes == '06': strmes = 'Junio'
+                elif mes == '07': strmes = 'Julio'
+                elif mes == '08': strmes = 'Agosto'
+                elif mes == '09': strmes = 'Septiembre'
+                elif mes == '10': strmes = 'Octubre'
+                elif mes == '11': strmes = 'Noviembre'
+                elif mes == '12': strmes = 'Diciembre'
+                titulo = "LPDH " + strdia + " de " + strmes + " de " + strfecha[0:4]
+                #titulo = get_titulo(fecha_publicacion)
 
             # post the article
             article = Resumen(
                 autor=autor,
                 titulo=titulo,
+                num_serie=num_serie,
                 contenido=contenido,
                 #markup=markup,
-                fecha_publicacion=fecha_publicacion,
-                status=3,
+                fecha_publicacion=fecha_publicacion2,
+                status=1,
             )
 
             try:

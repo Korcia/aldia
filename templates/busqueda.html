@@ -1,0 +1,149 @@
+{% extends "base_busqueda.html" %}
+{% block head_title %}{{ block.super }} Búsqueda{% endblock %}
+{% block meta_name_description %}
+<meta name="description" content="Búsqueda de conciertos de música clásica.Buscar por intérpretes, compositores, época, genero, precio, ciclos de música clásica y fechas.">
+{% endblock %}
+
+{% block estilo %}
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="/static/js/search.js"></script>
+{% endblock %}
+
+{% block page_title %}Buscador La Prensa de Hoy{% endblock %}
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+        <li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+        <li class="current"><a title="buscar" href="/buscar/">Búsqueda</a></li>
+        <li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+        <li><a title="demo" href="/demo/">Demo</a></li>
+        <li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+    </ul>
+</div>  
+{% endblock %}
+
+
+{% block contenido %}
+<div id="container-top"></div>
+<div id="container">
+<div id="content">
+    <div id="posts"><!-- posts-start -->
+        <div class="post text">
+            <div class="postinfo">
+                <div class="labels">
+                        <div class="date">
+                            <span class="smaller">{{ ahora|date:"M" }}</span><br><span>{{ ahora|date:"j" }}<span><br></span></span>
+                        </div>
+                </div>
+        
+                    
+            </div><!-- .postinfo -->
+            <span class="posttitle"><h2>Búsqueda en el Archivo de La Prensa de Hoy</h2></span>
+            <div class="regular_post_body">
+                <p>La función de búsqueda permite buscar palabras clave sobre el Archivo de La Prensa de Hoy.</p>
+                <p>Funcionalidad:</p>
+                <ul><li>Búsqueda en un periodo de tiempo.</li>
+                <li>Periodos de tiempo: hoy, mensual, trimestral y anual.</li>
+                <li>Acceso directo al documento original.</li>
+                </ul>
+            </div>
+            <a rel="nofollow" href="#" class="vialink">Comentarios</a>
+            <br class="clear">
+            <div id="search-resultados">
+                {{ lista_resultados }}
+            </div>
+        </div><!-- .post -->
+    </div><!-- #posts --><!-- posts-end -->
+    
+    <div id="sidebar">
+
+        <br>
+        <h2>Buscar</h2>
+        <br>
+    <div id="buscador">
+        {% block form1 %}
+        <form id="search-form" method="get" action=".">
+            <table><tbody>
+            <tr><td>
+            <input type="text" id="id_keywords" title='Para búsquedas exactas introduzca las palabras entre comillas. Ejemplo: "palabra1 palabra2" ' name="keywords" maxlength="40" />
+            <input type="hidden" name="tipobusqueda" value="keywordsearch" /></td>
+            <td>
+            <input type="submit" value=" " id="searchsubmit" name="submit" /></td>
+            </tr>
+            <tr><td>
+            <select name="fecha_periodo" id="fecha_periodo">
+                <option value='ME' selected="selected">Mensual</option>
+                <option value='TR'>Trimestral</option>
+                <option value='SE'>Semestral</option>
+                <option value='AN'>Anual</option>
+                <option value='TO'>Todo</option>
+            </select></td></tr>
+            <tr></tr>
+            </tbody></table>
+            </table>
+            <input type="reset" id="borrador" value="Borrar">
+        </form>
+        {% endblock %}
+    </div>
+    <div id="errores">
+        {{ form_key.keywords.errors }}
+    </div>
+        
+        <br>
+        
+        <h2>Info</h2>
+        <span id="about-text">Introduzca las palabras clave en el campo superior y pulse Intro o cliquée la lupa.
+<br><br>
+Puede limpiar el campo de búsqueda pulsando en Borrar.
+
+
+        <br class="clear">
+        
+        <br>
+
+        <ul class="links">
+            
+            <li><span><a href="/resumenes/">Resúmenes</a></span></li>
+            
+            <li><span><a href="/contacto/">Contacto</a></span></li>
+        </ul>
+
+                <div id="buttons">
+                    {% comment %}
+                    <div class="row">
+                        <div class="button" id="button-archive"><a href="/resumenes/">Archivo</a></div>
+                        <div class="button" id="button-mobile"><a rel="nofollow" href="#">Móvil</a></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="row">
+                        <div class="button" id="button-rss"><a href="http://www.twitter.com/prensadehoy">Twitter</a></div>
+                        <div class="button" id="button-random"><a rel="nofollow" href="#">Estadísticas</a></div>
+                    </div>
+                    {% endcomment %}
+                    <div class="clear"></div>
+                </div>
+
+        </div>
+        </div><!-- #content -->
+    </div><!-- #container -->
+    <div id="container-bottom">
+        <div id='parriba'>&nbsp;</div>
+    <script type="text/javascript">
+    $(window).scroll(function() {
+        if ($(this).scrollTop()) {
+            $('#parriba').fadeIn();
+        } else {
+            $('#parriba').fadeOut();
+        }
+    });
+    $("#parriba").click(function() {
+        $("html, body").animate({scrollTop: 0}, 1000);
+    });
+    </script>
+    </div>
+    <div class="clear"></div>
+    <br>
+
+{% endblock contenido %}

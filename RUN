@@ -1,0 +1,1 @@
+PYTHONPATH=/home/nacho/django-aldia:. python manage.py runserver --settings=settings 127.0.0.1:62189 --adminmedia=/home/nacho/laprensadehoy/media/admin

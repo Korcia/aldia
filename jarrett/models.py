@@ -1,12 +1,13 @@
 #coding=UTF-8
+from django.db import models
+from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 import datetime
-import locale
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+#import locale
+#locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
 from django.contrib.auth.models import User
-from django.db import models
-from django.db.models import permalink
-from utils.views import get_weather 
+#from django.db.models import permalink
 
 #Define mapeo de digitos a numeración romana
 romanNumeralMap = (('M',  1000),
@@ -52,7 +53,7 @@ class Resumen(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS,
                                  help_text="Sólo noticias con estado Publica serán mostradas.")
     num_romano = models.CharField(max_length=20)
-    tiempo = models.TextField(blank=True)
+    num_serie = models.IntegerField(blank=True)
 
     objects = models.Manager()
     live = LiveResumenManager()
@@ -88,14 +89,36 @@ class Resumen(models.Model):
         self.num_romano = resultado
         
     def save(self, force_insert=False, force_update=False):
-        self.tiempo = get_weather()
         self.crear_slug_unico()
         self.fecha_to_roman()
         super(Resumen, self).save(force_insert, force_update)
 
-    @permalink
+#    @permalink
+#    def get_absolute_url(self):
+#        return ('jarrett_resumen_detail', (), {'year': self.fecha_publicacion.strftime("%Y"),'month': self.fecha_publicacion.strftime("%b").lower(),'day': self.fecha_publicacion.strftime("%d"),'slug': self.slug })
+#    @models.permalink
+#    def get_absolute_url(self):
+#        return (str(self.fecha_publicacion.year)+'/'+self.fecha_publicacion.strftime("%b").lower()+'/'+str(self.fecha_publicacion.day).zfill(2)+'/'+self.slug)
+#            'year' : str(self.fecha_publicacion.year),
+#            'month': self.fecha_publicacion.strftime("%b").lower(),
+#            'day'  : str(self.fecha_publicacion.day).zfill(2),
+#            'slug' : self.slug
+#        })
+
     def get_absolute_url(self):
-        return ('jarrett_resumen_detail', (), { 'year': self.fecha_publicacion.strftime("%Y"),
-                                               'month': self.fecha_publicacion.strftime("%b").lower(),
-                                               'day': self.fecha_publicacion.strftime("%d"),
-                                               'slug': self.slug })
+        year = str(self.fecha_publicacion.strftime("%Y"))
+        month = str(self.fecha_publicacion.strftime("%m"))
+        day = str(self.fecha_publicacion.strftime("%d"))
+        slug = str(self.slug)
+        return reverse('resumen-detalle', args= (year, month, day, slug))
+
+#    @models.permalink
+#    def get_absolute_url(self):
+#        return "/mariconson/"
+#        return ('resumen_detallado', [str(self.id)])
+#        return ('jarrett_resumen_detail', None, {
+#            'year': str(self.fecha_publicacion.year),
+#            'month': self.fecha_publicacion.strftime('%b').lower(),
+#            'day': str(self.fecha_publicacion.day),
+#            'slug': self.slug
+#        })

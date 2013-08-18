@@ -5,15 +5,15 @@
 
 {% load sidebar_tags %}
 
-{% block head_title %}Noticias publicadas el {{ day|date:"j \de F, Y" }}{% endblock %}
+{% block head_title %}Noticias publicadas el {{ day|date:"j \d\e F, Y" }}{% endblock %}
 {% block contenido %}
     <div id="resumen">
  
-    <h2>Extracto del Boletín del {{ day|date:"j \de F, Y" }}</h2>
+    <h2>Extracto del Boletín del {{ day|date:"j \di\e F, Y" }}</h2>
     {% for entry in object_list %}
       <div class="post">
       <h1 class="title">{{ entry.titulo }}</h1>
-      <p class="byline"><small>Publicado el {{ entry.fecha_publicacion|date:"j \de F, Y" }}</small></p>
+      <p class="byline"><small>Publicado el {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</small></p>
           <div class="entry">
           {{ entry.contenido|truncatewords_html:"50"|safe }}
       <p class="more"><a href="{{ entry.get_absolute_url }}">&laquo;&laquo;&nbsp;&nbsp;Leer Noticia&nbsp;&nbsp;&raquo;&raquo;</a></p>
@@ -32,7 +32,7 @@
         <ul>
         {% for month in month_range %}
             {% ifequal year.year month.year %}
-                <li><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
+                <li><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"m" }}/">{{ month|date:"F" }}</a></li>
             {% endifequal %}
         {% endfor %}
     </ul>

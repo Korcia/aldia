@@ -1,0 +1,840 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ol, ul {
+    list-style: none outside none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+}
+* {
+    outline: medium none;
+}
+.clear {
+    clear: both;
+    height: 1px;
+    margin-bottom: -1px;
+}
+body {
+    background: url("/static/images/background-body-repeat.png") repeat-y scroll center top #000000;
+    color: #FFFFFF;
+    font-family: Ubuntu,"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Geneva,Verdana,sans-serif;
+    font-size: 11px;
+    text-shadow: 0 1px 0 #000000;
+}
+#wrap {
+    background: url("/static/images/background-top.jpg") no-repeat scroll center top transparent;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-left: 28px;
+    padding-right: 28px;
+    position: relative;
+    width: 905px;
+}
+#title {
+    background: url("http://static.tumblr.com/xsp9wak/Shikloi1h/background-title.png") repeat-x scroll center top transparent;
+    float: left;
+    height: 109px;
+    margin-left: 68px;
+    margin-top: 40px;
+    position: relative;
+    text-shadow: 0 2px 0 #000000;
+}
+#title h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#title h2 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#title a {
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#title b {
+    height: 93px;
+    position: absolute;
+    top: 0;
+    width: 36px;
+}
+#title b.left {
+    background: url("http://static.tumblr.com/xsp9wak/Shikloi1h/background-title.png") repeat scroll left top transparent;
+    left: -36px;
+}
+#title b.right {
+    background: url("http://static.tumblr.com/xsp9wak/Shikloi1h/background-title.png") repeat scroll right top transparent;
+    right: -36px;
+}
+#container-top {
+    background: url("/static/images/background-main-top-bottom.png") repeat scroll left top transparent;
+    float: right;
+    height: 92px;
+    margin-top: -25px;
+    width: 873px;
+}
+#container-bottom {
+    background: url("/static/images/background-main-top-bottom.png") no-repeat scroll left bottom transparent;
+    display: block;
+    float: right;
+    height: 78px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 873px;
+}
+#container-bottom a#pixelunion-link {
+    height: 40px;
+    position: absolute;
+    right: 30px;
+    text-indent: -9999em;
+    top: 5px;
+    width: 230px;
+}
+#container-bottom #hidden_navinfo {
+    display: none;
+}
+#container-bottom #classic-pagination a {
+    display: block;
+    position: absolute;
+    text-indent: -99999em;
+}
+#container-bottom #classic-pagination #next-page {
+    background: url("http://static.tumblr.com/xsp9wak/0Hoklonlk/button-next.png") no-repeat scroll left top transparent;
+    height: 50px;
+    left: 460px;
+    top: 1px;
+    width: 99px;
+}
+#container-bottom #classic-pagination #prev-page {
+    background: url("http://static.tumblr.com/xsp9wak/t0dklonr9/button-prev.png") no-repeat scroll left top transparent;
+    height: 50px;
+    left: 18px;
+    top: 1px;
+    width: 98px;
+}
+#container-bottom #load-more-posts {
+    background: url("http://static.tumblr.com/xsp9wak/LoBkloiw9/background-load-more-posts.png") no-repeat scroll left bottom transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: none;
+    font-family: Ubuntu,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    left: 17px;
+    position: absolute;
+    text-decoration: none;
+    top: 1px;
+    width: 230px;
+}
+#container-bottom #load-more-posts .spinner {
+    background: url("http://static.tumblr.com/xsp9wak/8aUkloi38/new-spinner.gif") no-repeat scroll left top transparent;
+    display: block;
+    float: left;
+    height: 32px;
+    margin-left: 20px;
+    margin-top: 9px;
+    width: 32px;
+}
+#container-bottom #load-more-posts p {
+    float: right;
+    margin-top: 15px;
+    padding-right: 15px;
+}
+#container {
+    background: url("http://static.tumblr.com/xsp9wak/kdbkloi3k/background-main-repeat.png") repeat-y scroll left top transparent;
+    float: right;
+    width: 873px;
+}
+#content {
+    margin-left: 30px;
+    margin-top: -50px;
+}
+#posts {
+    float: left;
+    width: 525px;
+}
+#sidebar {
+    float: right;
+    margin-bottom: 40px;
+    margin-right: 33px;
+    margin-top: 5px;
+    width: 268px;
+}
+#sidebar h2 {
+    background: url("http://static.tumblr.com/xsp9wak/iPdkloi3z/background-sidebar-heading.png") no-repeat scroll left top transparent;
+    font-family: Ubuntu,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 34px;
+    padding-left: 8px;
+    width: 260px;
+}
+#sidebar #user-portrait {
+    background: url("http://static.tumblr.com/xsp9wak/zUwkloi5v/background-user-portrait.png") no-repeat scroll left top transparent;
+    float: left;
+    height: 64px;
+    margin-right: 9px;
+    margin-top: 11px;
+    padding: 3px 4px 9px;
+    width: 64px;
+}
+#sidebar #about-text {
+    display: block;
+    font-size: 11px;
+    line-height: 18px;
+    margin-top: 11px;
+}
+#sidebar #about-text a {
+    color: #FFFFFF;
+}
+#sidebar ul.links {
+    margin-bottom: 2px;
+}
+#sidebar ul.links li {
+    background: url("http://static.tumblr.com/xsp9wak/XE1kloi66/icon-link-star.png") no-repeat scroll left center transparent;
+}
+#sidebar ul.links li span {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") no-repeat scroll left bottom transparent;
+    display: block;
+}
+#sidebar ul.links li.last span, #sidebar ul.links li:last-child span {
+    background: none repeat scroll 0 0 transparent;
+}
+#sidebar ul.links li a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    height: 37px;
+    line-height: 35px;
+    margin-left: 1px;
+    padding-left: 26px;
+    text-decoration: none;
+    width: 240px;
+}
+#sidebar ul.links li a:hover {
+    background: url("http://static.tumblr.com/xsp9wak/fo1kloi6x/icon-link-arrow.png") no-repeat scroll right center rgba(255, 255, 255, 0.05);
+}
+#sidebar ul#following {
+    margin-left: 5px;
+}
+#sidebar ul#following li {
+    float: left;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 12px;
+}
+#sidebar ul#following img {
+    background: url("http://static.tumblr.com/xsp9wak/X10kloi7i/background-following-portrait.png") no-repeat scroll right center transparent;
+    padding: 4px;
+}
+#sidebar #buttons {
+    padding: 20px 0 0;
+}
+#sidebar #buttons .button {
+    background: none no-repeat scroll left center transparent;
+    float: left;
+    font-size: 15px;
+    padding: 2px 0 0 30px;
+    width: 35%;
+}
+#sidebar #buttons a {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#sidebar #buttons div {
+    padding-bottom: 10px;
+}
+#sidebar #buttons #button-rss.button {
+    background-image: url("http://assets.tumblr.com/themes/redux/button-rss.png?2");
+    text-transform: capitalize;
+}
+#sidebar #buttons #button-random.button {
+    background-image: url("http://assets.tumblr.com/themes/redux/button-random.png?2");
+}
+#sidebar #buttons #button-archive.button {
+    background-image: url("http://assets.tumblr.com/themes/redux/button-archive.png?2");
+}
+#sidebar #buttons #button-mobile.button {
+    background-image: url("http://assets.tumblr.com/themes/redux/button-mobile.png?2");
+}
+.post.text .type {
+    background-position: 0 0;
+}
+.post.photo .type {
+    background-position: 0 -39px;
+}
+.post.quote .type {
+    background-position: 0 -78px;
+}
+.post.link .type {
+    background-position: 0 -117px;
+}
+.post.chat .type {
+    background-position: 0 -156px;
+}
+.post.audio .type {
+    background-position: 0 -195px;
+}
+.post.video .type {
+    background-position: 0 -234px;
+}
+.post .posttitle {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") no-repeat scroll left top transparent;
+    display: block;
+    margin-bottom: 10px;
+}
+.post .posttitle a:hover {
+    text-decoration: none !important;
+}
+.post .postcontainer {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left top transparent;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-left: 3px;
+    padding: 14px 20px;
+    position: relative;
+    width: 509px;
+}
+.post .postcontainer-bottom {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left bottom transparent;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 509px;
+}
+.post .posttitle h1 {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") no-repeat scroll left bottom transparent;
+    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-top: 9px;
+}
+.post .posttitle h2 {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") no-repeat scroll left bottom transparent;
+    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-top: 9px;
+}
+.description blockquote, .post.text blockquote {
+    border-left: 7px solid #414141;
+    font-family: Ubuntu,Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif;
+    font-size: 13px;
+    font-style: italic;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-top: 0.5em;
+    padding-left: 1em;
+    padding-top: 0.25em;
+}
+.description blockquote blockquote, .post.text blockquote blockquote {
+    border-left: 6px solid #414141;
+}
+.description ul, .description ol, .post.text ul, .post.text ol {
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    padding-top: 0.5em;
+}
+.description ol, .post.text ol {
+    list-style-type: decimal;
+}
+.description ul, .post.text ul {
+    list-style-type: disc;
+}
+.post {
+    margin-bottom: 15px;
+    min-height: 80px;
+    position: relative;
+}
+.post .posttitle h1 {
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+.post .posttitle h2 {
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+.description h1, .description h2, .description h3, .description h4, .description h5, .description h1 a, .description h2 a, .description h3 a, .description h4 a, .description h5 a {
+    color: #FFFFFF;
+    font-family: Uubntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+}
+.description h1 a, .description h2 a, .description h3 a, .description h4 a, .description h5 a {
+    text-decoration: underline;
+}
+.post .posttitle h1 a {
+    color: #FFFFFF;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.post .posttitle h2 a {
+    color: #FFFFFF;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.post.text a, .post .description a {
+    color: #08ABE1;
+    text-decoration: none;
+}
+.post.text a:hover, .post .description a:hover {
+    text-decoration: underline;
+}
+.postinfo {
+    display: block;
+    left: -63px;
+    position: absolute;
+    top: 0;
+    width: 44px;
+}
+.notecount {
+    background: url("http://static.tumblr.com/xsp9wak/mJ7kloias/post-icons.png") no-repeat scroll left bottom transparent;
+    color: #07294A !important;
+    display: block;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: 34px;
+    margin-right: 1px;
+    margin-top: 2px;
+    padding-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #058CBA;
+    width: 41px;
+}
+.notecount b {
+    color: #07294A !important;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.notecount span {
+    display: block;
+    font-size: 9px;
+    font-weight: normal;
+    line-height: 9px;
+    margin: 0 auto;
+    text-align: center;
+}
+.type {
+    background: url("http://static.tumblr.com/xsp9wak/mJ7kloias/post-icons.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 39px;
+    margin-bottom: 4px;
+    text-indent: -99999px;
+    width: 44px;
+}
+.vialink {
+    background: url("http://static.tumblr.com/xsp9wak/6aTkloibc/background-reblog-attribution.png") repeat scroll 0 0 transparent;
+    border: 1px solid #11191A;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF !important;
+    display: block;
+    float: left;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 2px 5px 0;
+    padding: 5px;
+    text-decoration: none;
+}
+.vialink:hover {
+    text-decoration: none;
+}
+.vialink span {
+    background: url("http://static.tumblr.com/xsp9wak/IXOkloibo/icon-reblogged.png") no-repeat scroll 5px 6px transparent;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 5px 5px 5px 20px;
+}
+.post.video .description, .post.photo .description {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left top transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-left: 5px;
+    overflow: hidden;
+    padding: 5px 15px;
+    position: relative;
+    width: 479px;
+}
+.post.video .description-bottom, .post.photo .description-bottom {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left bottom transparent;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 509px;
+}
+.post.text {
+    padding-left: 10px;
+    width: 500px;
+}
+.post.text p {
+    margin-bottom: 0.5em;
+}
+.post.audio h3 {
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+.post.audio .postcontainer {
+    overflow: hidden;
+    width: 469px;
+}
+.post.text p, .post .description {
+    line-height: 18px;
+}
+.post.photo .img-wrap {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    float: left;
+    margin-bottom: 9px;
+    margin-left: 4px;
+    position: relative;
+}
+.post.photo .img-wrap .vialink {
+    background: url("http://static.tumblr.com/xsp9wak/IXOkloibo/icon-reblogged.png") no-repeat scroll 5px 6px #000000;
+    bottom: 6px;
+    color: #FFFFFF;
+    display: none;
+    font-size: 11px;
+    opacity: 0.8;
+    padding: 5px 5px 5px 20px;
+    position: absolute;
+    right: 10px;
+    text-shadow: 0 1px 1px #000000;
+    z-index: 30;
+}
+.post.photo .img-wrap:hover .vialink {
+    display: block;
+}
+.post.photo .img-wrap .vialink:hover {
+    text-decoration: underline;
+}
+.post.photo .img-wrap .zoomlink {
+    background: url("http://static.tumblr.com/xsp9wak/ANGkloic5/icon-zoom.png") no-repeat scroll left top transparent;
+    display: none;
+    font-size: 11px;
+    height: 25px;
+    position: absolute;
+    right: 15px;
+    text-indent: -99999em;
+    top: 15px;
+    width: 63px;
+    z-index: 20;
+}
+.post.photo .img-wrap:hover .zoomlink {
+    display: block;
+}
+.post.photo img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: block;
+    float: left;
+    padding: 5px;
+}
+.post.photo img {
+    display: block;
+}
+.post.video .vid-wrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: block;
+    float: left;
+    margin-bottom: 9px;
+    margin-left: 4px;
+    padding: 5px;
+    position: relative;
+}
+.post.chat .posttitle h1 {
+    background: none repeat scroll 0 0 transparent;
+    padding-left: 8px;
+    padding-top: 5px;
+}
+.post.chat .posttitle {
+    background: none repeat scroll 0 0 transparent;
+    margin-bottom: 0;
+}
+ul.chat {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #000000 #000000 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    float: left;
+    margin-left: 3px;
+}
+ul.chat li {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left top transparent;
+    border-bottom: 1px solid #192526;
+    padding: 12px;
+    width: 485px;
+}
+ul.chat span.name {
+    float: left;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: right;
+    width: 80px;
+}
+ul.chat span.message {
+    line-height: 14px;
+}
+.post.chat .vialink {
+    margin-left: 4px;
+}
+.post.link .postcontainer {
+    overflow: hidden;
+    padding: 0 0 5px;
+}
+.post.link .description {
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 60px;
+}
+.post.link a.postlink {
+    color: #FFFFFF;
+    display: block;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 70px 10px 20px;
+    text-decoration: none;
+    width: 428px;
+}
+.post.link a.postlink span {
+    background: url("http://static.tumblr.com/xsp9wak/PHAkloide/icon-linkpost-arrow.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 36px;
+    margin-top: -17px;
+    opacity: 0.7;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 35px;
+}
+.post.link a.postlink:hover span {
+    opacity: 1;
+}
+.post.link .vialink {
+    margin-left: 20px;
+}
+.post.quote {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") no-repeat scroll left top transparent;
+    font-family: Ubuntu,Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 500px;
+}
+.post.quote span.attribution {
+    display: block;
+    font-family: Ubuntu,"Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.post.quote span.attribution a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+.post.quote p {
+    line-height: 26px;
+}
+#post-meta {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") repeat-x scroll left top transparent;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 18px;
+    margin-left: 4px;
+    width: 510px;
+}
+#post-meta .permalink-notecount {
+    float: left;
+}
+#post-meta .date {
+    float: right;
+    text-transform: capitalize;
+}
+#post-meta #permalink-postinfo {
+    background: url("http://static.tumblr.com/xsp9wak/1dikloi6g/hr.png") repeat-x scroll left bottom transparent;
+    margin-bottom: 12px;
+    overflow: hidden;
+    padding-bottom: 7px;
+    padding-top: 8px;
+}
+#post-meta #permalink-postinfo .permalink-notecount {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+#post-meta #permalink-postinfo .permalink-notecount a {
+    font-weight: bold;
+}
+#post-meta #permalink-postinfo .date {
+    font-size: 11px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+ol.notes {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+ol.notes li {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left top transparent;
+    border: 1px solid #000000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 14px 50px 13px 14px;
+    position: relative;
+    width: 445px;
+}
+ol.notes li .li-bottom {
+    background: url("http://static.tumblr.com/xsp9wak/Mwekloi8s/background-container.png") no-repeat scroll left bottom transparent;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 509px;
+}
+ol.notes li .note-icon {
+    clear: both;
+    height: 32px;
+    margin-top: -16px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 32px;
+}
+ol.notes li.like .note-icon {
+    background: url("http://static.tumblr.com/xsp9wak/1Jwkloidr/note-icons.png") no-repeat scroll left 0 transparent;
+}
+ol.notes li.reblog .note-icon {
+    background: url("http://static.tumblr.com/xsp9wak/1Jwkloidr/note-icons.png") no-repeat scroll left -33px transparent;
+}
+ol.notes li.answer .note-icon {
+    background: url("http://static.tumblr.com/xsp9wak/1Jwkloidr/note-icons.png") no-repeat scroll left -64px transparent;
+}
+ol.notes li.fp .note-icon {
+    background: url("http://static.tumblr.com/xsp9wak/1Jwkloidr/note-icons.png") no-repeat scroll left -96px transparent;
+}
+ol.notes li a img {
+    background: url("http://static.tumblr.com/xsp9wak/e3Lkloied/background-note-userpic.png") repeat-x scroll left top transparent;
+    float: left;
+    height: 16px;
+    padding: 4px;
+    width: 16px;
+}
+ol.notes li a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+ol.notes li span.action {
+    float: left;
+    margin-left: 10px;
+}
+ol.notes blockquote {
+    font-size: 13px;
+    font-weight: normal !important;
+    padding-left: 35px;
+}
+ol.notes blockquote a {
+    font-weight: normal !important;
+}
+.regular_post_body img {
+    max-width: 100%;
+}
+#disqus_thread #dsq-content #dsq-new-post.dsq-post-area h3, #disqus_thread #dsq-content #dsq-new-post.dsq-post-area .dsq-dc-logo, #disqus_thread #dsq-content td.dsq-request-user-name small, #disqus_thread #dsq-content td.dsq-request-user-stats, #disqus_thread #dsq-content .dsq-sharing-options, #disqus_thread #dsq-content .dsq-comments-title, #disqus_thread #dsq-content .dsq-options, #disqus_thread #dsq-content .dsq-thread-settings, #disqus_thread #dsq-content .dsq-comments-title, #disqus_thread #dsq-content .dsq-comments-title h3 {
+    display: none;
+}
+#disqus_thread a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+.post div.labels {
+    background: url("/static/images/post-icons.png") no-repeat scroll left bottom transparent;
+    color: #07294A !important;
+    display: block;
+    font-family: Ubuntu,"Helvetica Neue",helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 100%;
+    margin-right: 1px;
+    margin-top: 2px;
+    padding-top: 5px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #058CBA;
+    width: 41px;
+}
+.post .date {
+    color: #07294A !important;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: -3px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+.post div.labels .smaller {
+    font-size: 10px !important;
+}
+ul.tags {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+ul.tags li {
+    display: inline;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+ul.tags li:after {
+    color: #AAAAAA;
+    content: ", ";
+}
+ul.tags li:last-child:after {
+    content: "";
+}

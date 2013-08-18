@@ -128,7 +128,7 @@ input#borrador {
 #errores {
     color: red;
     height: 20px;
-    font-size: 16px;
+    font-size: 14px;
 }
 #error-busqueda {
     color: #dc322f;
@@ -1153,4 +1153,13 @@ input#borrador {
 .regular_post_body ul li {
 	text-align: justify;
 	color: #93a1a1;
+}
+#parriba {
+    padding: 5px 3px;
+    background: #000;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+    display: none;
 }

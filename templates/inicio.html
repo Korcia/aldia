@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block head_title %}{{ block.super }} Inicio{% endblock %}
+{% block meta_name_description  %}
+<meta name="description" content="La Prensa de Hoy es un servicio de resúmenes diarios de prensa económica.">
+{% endblock %}
+
+	{% block estilo %}<link href="/static/css/layerpos.css" rel="stylesheet" type="text/css" media="screen" />{% endblock %}
+	{% block js %}
+	<script type='text/javascript' src='/static/js/jquery.cycle.all.min.js'></script>
+	<script type="text/javascript">
+    //<![CDATA[
+    jQuery(function(){
+    	jQuery.noConflict();
+		jQuery('#spotlight').cycle({
+			timeout: 7000,
+			speed: 2000,
+			pause: 1,
+			prev: 'a#previous',
+			next: '#next', 
+			fx: 'fade'
+		});						
+	});
+    //]]>
+    </script>	
+	{% endblock %}
+
+{% block page_title %}Bienvenido a La Prensa de Hoy{% endblock %}
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+		<li class="current"><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+		<li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+		<li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+		<li><a title="suscríbase" href="/demo/">Demo</a></li>
+		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+		<!--<li><a title="suscríbase" href="/suscripcion/">Suscripción</a></li>-->
+	</ul>
+</div>	
+{% endblock %}
+
+{% block contenido %}
+<!-- Start Featured -->	
+	<div id="featured">
+		<div id="left_arrow">
+		<a href="#" id="previous"><img src="/static/images/fleft_arrow.png"
+        alt="Anterior" height="70" width="32"></a>
+        </div>			
+		<!-- Featured Content -->
+		<div id="featured_content"> 				
+			<!-- Featured Articles -->
+			<div style="position: relative; width: 450px; height: 277px;" id="spotlight">
+                {% for ficha in fichas_inicio %}
+				<div class="slide" style="position: absolute; top: 0px; left: 0px; display: block; z-index: 5; opacity: 1; width: 800px; height: 277px;">
+					<h1>{{ ficha.titulo }}</h1>
+					<br class="clear">
+					<img src="/media/{{ ficha.imagen }}" class="featured_img wp-post-image">						
+					<div class="texto_ficha"> <span class="letra_slide">{{ ficha.texto_html|safe }}</span></div>
+				</div>
+				{% endfor %}
+			</div>
+			<!-- End Featured Articles -->
+		</div>
+		<div id="right_arrow"><a href="#" id="next"><img src="/static/images/fright_arrow.png"
+        alt="Siguiente" height="70" width="32"></a>
+		</div>
+		<!-- End Featured -->
+	</div>
+	<div style="clear:both;"></div>
+{% endblock contenido %}

@@ -4,63 +4,23 @@
 {% endblock %}
 
 {% block head_title %}Resumen: {{ object.titulo }}{% endblock %}
-{% block js %}
-{% endblock %}
 {% block navi %}
 <div id="navi">
-    <ul class="lavaLamp">
+    <ul id="menulava">
 		<li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
 		<li><a title="buscar" href="/buscar/">Búsqueda</a></li>
 		<li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
 		<li class="current"><a title="demo" href="/demo/">Demo</a></li>
 		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
-	</ul>
+    </ul>
 </div>	
-{% endblock %}
-{% block columnaderecha %}
-<div id="rightColumn">
-    <div class="sideBox">
-        <h3 class="sideBoxHeader">
-            <img src="/static/images/arrow_open.png" alt="toggle"/>
-            Titulares
-        </h3>
-        <ul class="sideBoxList" style="width:auto;">
-            <li><a href="#Section2">Expansión</a></li>
-            <li><a href="#Section3">Cinco Días</a></li>
-            <li><a href="#Section4">El Economista</a></li>
-            <li><a href="#Section5">El País</a></li>
-            <li><a href="#Section6">El Mundo</a></li>
-            <li><a href="#Section7">ABC</a></li>
-            <li><a href="#Section8">La Razón</a></li>
-            <li><a href="#Section9">La Vanguardia</a></li>
-        </ul>
-    </div>
-    <div class="sideBox">
-        <h3 class="sideBoxHeader">
-            <img src="/static/images/arrow_open.png" alt="toggle"/>
-            Secciones
-        </h3>
-        <ul class="sideBoxList" style="width:auto;">
-            <li><a href="#Section10">Economía</a></li>
-            <li><a href="#Section11">Empresas</a></li>
-            <li><a href="#Section12">Telecomunicaciones</a></li>
-            <li><a href="#Section13">Audiovisual</a></li>
-            <li><a href="#Section14">Nuevas Tecnologías</a></li>    
-            <li><a href="#Section15">Internet</a></li>
-            <li><a href="#Section16">Motor</a></li>
-            <li><a href="#Section17">Finanzas</a></li>    
-        </ul>
-    </div>
-</div>
 {% endblock %}
 
 {% block contenido %}
     <div id="resumen">
         <img id="logo-detalle" src="/static/images/logo-lpdh-resumen-detail.png" alt="La Prensa de Hoy" />
-        <p><small>{{ object.fecha_publicacion|date:"j \de F, Y" }}</small>
-        <small><span class="romanos">nº {{ object.id }} año {{ object.num_romano }}</span></small></p>
+        <p><small>{{ object.fecha_publicacion|date:"j \d\e F, Y" }}</small>
+        <small><span class="romanos">nº {{ object.num_serie }} año {{ object.num_romano }}</span></small></p>
         {{ object.contenido|safe }}
-        {{ object.tiempo|safe }}
-        <!--{{ tiempo|safe }}-->
     </div>
 {% endblock %}

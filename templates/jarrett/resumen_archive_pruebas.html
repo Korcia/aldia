@@ -1,0 +1,113 @@
+{% extends "base_resumen.html" %}
+{% block meta_name_description %}
+<meta name="description" content="Archivo de noticias.">
+{% endblock %}
+
+{% block js %}
+<script>
+/**
+* Para activar el año si estamos en un listado de archivo
+*/
+function activate_year_lista_archive() {
+// Obtenemos el año de la URL
+var archive_year = /\/archivo\/(\d+)\//.exec(document.location.href);
+if(archive_year) {
+var element_archive = document.getElementById('archivo_anyo_'+archive_year[1]);
+if(element_archive) {
+element_archive.setAttribute('class', 'activo');
+}
+}
+}
+/**
+* Para desplegar los meses del año pasado por parámetro
+*/
+function control_meses(nodo,anyo){
+//primero cambio la imagen de + por -
+if (nodo.className == 'abrir'){
+nodo.className = 'cerrar';
+estado = 'block';
+}else{
+nodo.className = 'abrir';
+estado = 'none';
+}
+var elements_meses = document.getElementsByClassName('archivo_mes '+anyo);
+for (var i = 0; i < elements_meses.length; i++) {
+elements_meses[i].style.display=estado;
+}
+}
+document.getElementsByClassName = function(cl) {
+var retnode = [];
+var myclass = new RegExp('\\b'+cl+'\\b');
+var elem = this.getElementsByTagName('*');
+for (var i = 0; i < elem.length; i++) {
+var classes = elem[i].className;
+if (myclass.test(classes)) retnode.push(elem[i]);
+}
+return retnode;
+};
+setTimeout(activate_year_lista_archive, 1750);
+</script>
+{% endblock %}
+
+{% load sidebar_tags_jarrett %}
+
+{% block head_title %}Resúmenes{% endblock %}
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+		<li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+		<li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+		<li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+		<li class="current"><a title="demo" href="/demo/">Demo</a></li>
+		<li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+	</ul>
+</div>	
+{% endblock %}
+
+{% block contenido %}
+<div id="container-top"></div>
+<div id="container">
+    <span class="titular_ultimos"><h2>Últimos Resúmenes</h2></span>
+    <div id="resumen">
+        <table id="resultados" class="load" width="600px" border="1" cellspacing="0">
+            <caption>&nbsp;</caption>
+            <tbody>
+            {% for entry in latest %}
+                <tr class="filas">
+                    <td><img src="/static/images/logo_lpdh.jpg" alt="Ver resumen" title="Resumen diario." /></td>  
+                    <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</h2></td>
+                    <td><span class="readmore"><a href={{ entry.get_absolute_url }}>&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="historicos">
+    <div class="sidebaritem">
+    <div class="sidebaritem_top"><a class="title" href="#">Archivos</a></div>    
+	    {% get_archivos_jarrett %}
+	    {% if year_range %}
+	    <div id="rango">
+	    {% for year in year_range %}
+            <dl>
+            <dt>
+            <a id="img_year" class="abrir" title="abrir año" href="javascript:void(0);" onclick="control_meses(this,{{ year.year }})">&nbsp;</a>
+	        <h4>{{ year.year }}</h4>
+	        </dt>	        
+	        {% for month in month_range %}
+	            {% ifequal year.year month.year %}
+	                <dd style="display: none;"><a href="{{ ROOT_URL }}/demo/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></dd>
+	            {% endifequal %}
+	        {% endfor %}
+	    {% endfor %}
+	    </div>
+	    {% endif %}
+	</div>    
+    </div>
+    <div class="blank"></div>
+</div>
+    <div id="container-bottom">        
+            <div id="load-more-posts"><span class="spinner"></span><p>Load more posts…</p></div>        
+    </div>
+    <br>
+{% endblock contenido %}

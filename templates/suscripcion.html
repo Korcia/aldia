@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block head_title %}{{ block.super }} Suscripción {% endblock %}
+{% block meta_name_description %}
+<meta name="description" content="Suscripción a La Prensa de Hoy. Pago forma segura.">
+{% endblock %}
+
+
+{% block navi %}
+<div id="navi">
+    <ul class="lavaLamp">
+        <li><a title="Inicio La Prensa de Hoy" href="/">Inicio</a></li>
+        <li><a title="buscar" href="/buscar/">Búsqueda</a></li>
+        <li><a title="noticias" href="/resumenes/">Resúmenes</a></li>
+        <li><a title="demo" href="/demo/">Demo</a></li>
+        <li class="current"><a title="suscripcion" href="/suscripcion/">Suscripción</a></li>
+        <li><a title="contacte con La Prensa de Hoy" href="/contacto/">Contacto</a></li>
+    </ul>
+</div>  
+{% endblock %}
+
+
+{% block contenido %}
+<div id="wrap-suscripcion">
+    <a href="https://www.2checkout.com/checkout/purchase?sid=1950996&amp;mode=2CO&amp;demo=Y&amp;li_0_type=product&amp;li_0_price=6.95&amp;currency_code=EUR&amp;lang=es_ib&amp;return_url=laprensadehoy.es/gracias/&amp;x_receipt_link_url=laprensadehoy.es/gracias/&amp;li_0_quantity=1&amp;li_0_name=Suscripcion LPDH 1 mes&amp;li_0_tangible=N&amp;li_0_recurrence=1+Month&amp;li_0_duration=Forever&amp;li_0_startup_fee=0.00">
+    <div class="upgradeSection" style="padding:0 5px 0 5px;">
+        <div class="upgradeContent ui-corner-all">
+            <div class="upgradeContentInternal">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions" id="id_cmd">
+                <div class="period">30 días</div>
+                <div class="clear"></div>
+                <div class="premium">Premium</div>
+                <div class="clear"></div>
+                <div class="totalPrice">6,95 €</div>
+                <div class="clear"></div>
+                <div class="pricePerDay">Oferta Individual</div>
+                <div class="clear"></div>
+                <div class="paymentButton"><img src="/static/images/2cocc01.gif" width="194" height="60" alt="Pagar con Tarjeta de Crédito"></div>
+                <div class="clear"></div>
+                <div class="secure"><img src="/static/images/icon_padlock.gif" width="12" height="12" alt="Secure Payment" style="vertical-align:middle;"><span style="vertical-align: middle;">&nbsp;100% Seguro</span></div>
+                <div class="clear"></div>
+                <a href="https://www.2checkout.com/checkout/purchase?sid=1303908&mode=2CO&li_0_type=product&li_0_price=1.00&li_0_quantity=1&li_0_name=Example+Product+Name&li_0_tangible=N&li_0_recurrence=1+Month&li_0_duration=Forever&li_0_startup_fee=0.00" class="boton_suscripcion">
+                    <span>Suscribirse</span>
+                </a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </a>
+
+    <!-- <a href="http://prefiles.com/?oppayments&amp;amount=7.95&amp;type=paypal&amp;r=dp0uzu"> -->
+    <a href="/productos/trimestral/">
+    <div class="upgradeSection" style="padding:0 5px 0 5px;">
+        <div class="upgradeContent ui-corner-all">
+            <div class="upgradeContentInternal">
+                <div class="period">180 días</div>
+                <div class="clear"></div>
+                <div class="premium">Premium</div>
+                <div class="clear"></div>
+                <div class="totalPrice">19,95 €</div>
+                <div class="clear"></div>
+                <div class="pricePerDay">Oferta Individual</div>
+                <div class="clear"></div>
+                <div class="paymentButton"><img src="/static/images/2cocc01.gif" width="194" height="60" alt="Pagar con Tarjeta de Crédito"></div>
+                <div class="clear"></div>
+                <div class="secure"><img src="/static/images/icon_padlock.gif" width="12" height="12" alt="Secure Payment" style="vertical-align:middle;"><span style="vertical-align: middle;">&nbsp;100% Seguro</span></div>
+                <div class="clear"></div>
+                <a href="/productos/trimestral/" class="boton_suscripcion">
+                    <span>Suscribirse</span>
+                </a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </a>
+    
+    <!-- <a href="http://prefiles.com/?oppayments&amp;amount=7.95&amp;type=paypal&amp;r=dp0uzu">-->
+    <a href="/productos/anual/">
+    <div class="upgradeSection" style="padding:0 5px 0 5px;">
+        <div class="upgradeContent ui-corner-all">
+            <div class="upgradeContentInternal">
+                <div class="period">365 días</div>
+                <div class="clear"></div>
+                <div class="premium">Premium</div>
+                <div class="clear"></div>
+                <div class="totalPrice">59,95 €</div>
+                <div class="clear"></div>
+                <div class="pricePerDay">Oferta Individual</div>
+                <div class="clear"></div>
+                <div class="paymentButton"><img src="/static/images/2cocc01.gif" width="194" height="60" alt="Pagar con Tarjeta de Crédito"></div>
+                <div class="clear"></div>
+                <div class="secure"><img src="/static/images/icon_padlock.gif" width="12" height="12" alt="Secure Payment" style="vertical-align:middle;"><span style="vertical-align: middle;">&nbsp;100% Seguro</span></div>
+                <div class="clear"></div>
+                <a href="/productos/anual/" class="boton_suscripcion">
+                    <span>Suscribirse</span>
+                </a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </a>
+    
+    <a href="/contacto/">
+    <div class="upgradeSection" style="padding:0 5px 0 5px;">
+        <div class="upgradeContent ui-corner-all">
+            <div class="upgradeContentInternal">
+                <div class="period">365 días</div>
+                <div class="clear"></div>
+                <div class="premium">Corporativo</div>
+                <div class="clear"></div>
+                <div class="totalPricecorporativo">Pedir Presupuesto</div>
+                <div class="clear"></div>
+                <div class="pricePerDay">La Mejor Oferta</div>
+                <div class="clear"></div>
+                <div class="paymentButton"><img src="/static/images/contacto.png" width="158" height="58" alt="Ir a Contacto"></div>
+                <div class="clear"></div>
+                <div class="secure"><img src="/static/images/icon_padlock.gif" width="12" height="12" alt="Secure Payment" style="vertical-align:middle;"><span style="vertical-align: middle;">&nbsp;100% Seguro</span></div>
+                <div class="clear"></div>
+                <a href="/contacto/" class="boton_suscripcion">
+                    <span>Suscribirse</span>
+                </a>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    </a>
+    
+    <div class="clear"></div>
+</div>
+{% endblock contenido %}

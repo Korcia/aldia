@@ -3,6 +3,19 @@
 <meta name="description" content="Archivo mensual de noticias.">
 {% endblock %}
 
+{% block js %}
+<script>
+$(document).ready(function() {
+    $('.archive_month').hide();
+
+    $('.abrir').click(function() {
+        $(this).find('ul').slideToggle();
+        $(this).toggleClass('cerrar');
+    });
+});
+</script>
+{% endblock %}
+
 {% load sidebar_tags %}
 
 {% block head_title %}Resúmenes publicados en {{ month|date:"F Y" }}{% endblock %}
@@ -19,15 +32,17 @@
 {% endblock %}
 
 {% block contenido %}
+<div id="container-top"></div>
+<div id="container">
+    <span class="titular_ultimos"><h2>Resúmenes publicados en {{ month|date:"F Y" }}</h2></span>
     <div id="resumen">
-		<table id="resultados" class="load" width="100%" border="1" cellspacing="0">
-            <caption>Resúmenes publicados en {{ month|date:"F Y" }}</caption>
+		<table id="resultados" class="load" width="600px" border="1" cellspacing="0">
+            <caption>&nbsp;</caption>
             <tbody>
             {% for entry in object_list %}
-                
                     <tr class="filas">
                         <td><img src="/static/images/logo_lpdh.jpg" alt="Ver resumen", title="Resumen diario." /></td>  
-                        <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \de F, Y" }}</h2></td>
+                        <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</h2></td>
                         <td><span class="readmore"><a href="{{ entry.get_absolute_url }}">&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></td>
                     </tr>
             {% endfor %}
@@ -37,23 +52,30 @@
     <div id="historicos">
     <div class="sidebaritem">
     <div class="sidebaritem_top"><a class="title" href="#">Archivos</a></div>    
-	    {% get_archivos %}
-	    {% if year_range %}
-	    <div id="rango">
-	    {% for year in year_range %}
-	        <h4>{{ year.year }}</h4>
-	        <ul>
-	        {% for month in month_range %}
-	            {% ifequal year.year month.year %}
-	                <li><a href="{{ ROOT_URL }}/resumenes/{{ year.year }}/{{ month|date:"b" }}/">{{ month|date:"F" }}</a></li>
-	            {% endifequal %}
-	        {% endfor %}
-	    </ul>
-	    {% endfor %}
-	    </div>
-	    {% endif %}
-	</div>    
+        {% get_archivos %}
+        {% if year_range %}
+        <div id="rango">
+        <ul class="archive_year">
+        {% for year in year_range %}
+            <li class="abrir">{{ year.year }}
+            <ul class="archive_month">
+            {% for month in month_range %}
+                {% ifequal year.year month.year %}
+                    <li class="months"><a href="{{ ROOT_URL }}/resumenes/{{ year.year }}/{{ month|date:"m" }}/">{{ month|date:"F" }}</a></li>
+                {% endifequal %}
+            {% endfor %}
+            </ul>
+            </li>
+        {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    </div>
     </div>
     <div class="blank"></div>
-
-{% endblock %}
+</div>
+    <div id="container-bottom">        
+            <div id="load-more-posts"><span class="spinner"></span><p>Load more posts…</p></div>        
+    </div>
+    <br>
+{% endblock contenido %}
