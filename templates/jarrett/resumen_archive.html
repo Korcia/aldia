@@ -41,8 +41,7 @@ $(document).ready(function() {
             <tbody>
             {% for entry in latest %}
                 <tr class="filas">
-                    <td><img src="/static/images/logo_lpdh.jpg" alt="Ver resumen" title="Resumen diario." /></td>  
-                    <td><h2>Prensa del {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</h2></td>
+                    <td><a class="nolink" href={{ entry.get_absolute_url }}><h2>Prensa del {{ entry.fecha_publicacion|date:"j \d\e F, Y" }}</h2></a></td>
                     <td><span class="readmore"><a href={{ entry.get_absolute_url }}>&laquo;&laquo;&nbsp;&nbsp;Leer resumen&nbsp;&nbsp;&raquo;&raquo;</a></td>
                 </tr>
             {% endfor %}

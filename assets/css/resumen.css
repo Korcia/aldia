@@ -99,7 +99,7 @@ body {
 	{
 		height:53px;
 		margin-top:21px;
-		margin-bottom: 20px;
+		margin-bottom: 0px;
 		background:url(/static/images/navibg-lpdh.png) no-repeat center;
 	}
 #navi ul
@@ -162,6 +162,7 @@ body {
 }
 .filas td {
 	text-align: center;
+	padding: 3px 0;
 }
 .filas h2 {
 	color: #fff;
@@ -1189,4 +1190,4 @@ li.months a { margin: 5px 0 1px -36px; }
 li.months { text-decoration: none; font-size: 14px;list-style: none; }
 li.abrir { font-size: 16px; }
 li.abrir.cerrar { font-size: 16px; }
-
+a.nolink { text-decoration: none; }
